@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>TLC International Cargo — Votre Cargo, Notre Priorité</title>
+<meta name="description" content="Transit international, importation, stockage temporaire et livraison de vos colis entre la Chine et le Cameroun. Suivez votre cargo à chaque étape avec TLC International Cargo.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TLC International Cargo — Votre Cargo, Notre Priorité">
+<meta property="og:description" content="Transit international, importation, stockage et livraison de vos colis entre la Chine et le Cameroun.">
+<meta property="og:image" content="/assets/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230A1F3D'/%3E%3Ctext x='50' y='68' font-size='52' font-family='Arial, sans-serif' font-weight='700' text-anchor='middle' fill='%231FAE6E'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230A1F3D'/%3E%3Ctext x='50' y='68' font-size='52' font-family='Arial, sans-serif' font-weight='700' text-anchor='middle' fill='%231FAE6E'%3ET%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#0A1F3D">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="TLC Cargo">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#071627; --navy-900:#0A1F3D; --navy-800:#0F2A4D; --navy-700:#17406B;
+    --green-500:#1FAE6E; --green-400:#3FC98A; --green-050:#EAFBF2;
+    --amber-500:#E8871E; --paper-50:#F6F4EC; --ink-900:#10151F; --ink-600:#586173;
+    --white:#FFFFFF; --line:rgba(255,255,255,.14); --radius:16px; --app-width:480px;
+    --font-display:'Space Grotesk', sans-serif; --font-body:'Inter', sans-serif; --font-mono:'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; font-family:var(--font-body); color:var(--ink-900); background:var(--paper-50); -webkit-font-smoothing:antialiased;}
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  h1,h2,h3{font-family:var(--font-display); margin:0; line-height:1.08; letter-spacing:-0.01em;}
+  p{margin:0; line-height:1.6;}
+  .wrap{max-width:var(--app-width); margin:0 auto; padding:0 18px;}
+  :focus-visible{outline:3px solid var(--green-400); outline-offset:2px;}
+  @media (prefers-reduced-motion: reduce){ *{animation-duration:.001ms !important; transition-duration:.001ms !important;} }
+
+  header{position:sticky; top:0; z-index:50; background:var(--navy-900); border-bottom:1px solid var(--line);}
+  .nav{display:flex; align-items:center; justify-content:space-between; height:60px;}
+  .brand{display:flex; align-items:center; gap:10px; color:var(--white);}
+  .brand-mark{width:34px; height:34px; border-radius:9px; background:var(--green-500); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:700; color:var(--navy-950); font-size:16px; flex:none;}
+  .brand-word{font-family:var(--font-display); font-weight:700; font-size:13px; letter-spacing:.03em;}
+  .brand-word span{display:block; font-family:var(--font-body); font-weight:400; font-size:9.5px; color:var(--green-400); letter-spacing:.08em;}
+
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:11px 18px; border-radius:999px; font-weight:600; font-size:14px; border:1px solid transparent; cursor:pointer; white-space:nowrap; font-family:inherit;}
+  .btn-primary{background:var(--green-500); color:var(--navy-950);}
+  .btn-primary:hover{background:var(--green-400);}
+  .btn-ghost{color:var(--white); border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--white);}
+  .btn-block{width:100%;}
+
+  .burger{display:flex; width:40px; height:40px; border-radius:10px; border:1px solid var(--line); align-items:center; justify-content:center; background:transparent; cursor:pointer; flex:none;}
+  .burger span, .burger span::before, .burger span::after{content:''; display:block; width:18px; height:2px; background:var(--white); position:relative;}
+  .burger span::before{position:absolute; top:-6px;}
+  .burger span::after{position:absolute; top:6px;}
+
+  .sidebar-backdrop{position:fixed; inset:0; background:rgba(7,22,39,.55); opacity:0; pointer-events:none; transition:opacity .25s; z-index:60;}
+  .sidebar-backdrop.open{opacity:1; pointer-events:auto;}
+  .sidebar{position:fixed; top:0; right:0; height:100%; width:82%; max-width:320px; background:var(--navy-900); z-index:70; transform:translateX(100%); transition:transform .28s ease; display:flex; flex-direction:column; padding:18px 20px 22px; overflow-y:auto;}
+  .sidebar.open{transform:translateX(0);}
+  .sidebar-close{align-self:flex-end; width:36px; height:36px; border-radius:10px; border:1px solid var(--line); background:transparent; color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center;}
+  .sidebar .brand{margin:14px 0 6px;}
+  .sidebar-nav{display:flex; flex-direction:column; gap:2px; margin:16px 0;}
+  .sidebar-nav a{color:#C9D3E0; padding:13px 4px; font-size:15px; border-bottom:1px solid var(--line);}
+  .lang-switch{display:flex; gap:8px; margin:4px 0 2px;}
+  .lang-switch button{flex:1; padding:9px; border-radius:10px; border:1px solid var(--line); background:transparent; color:#C9D3E0; font-family:var(--font-mono); font-size:12.5px; font-weight:600; letter-spacing:.05em; cursor:pointer;}
+  .lang-switch button.active{background:var(--green-500); color:var(--navy-950); border-color:var(--green-500);}
+  #sidebar-auth{display:flex; flex-direction:column; gap:10px; margin-top:auto; padding-top:16px; border-top:1px solid var(--line);}
+  .sidebar-user{display:flex; align-items:center; gap:10px; color:#fff; font-size:13px; margin-bottom:2px;}
+  .user-avatar{width:36px; height:36px; border-radius:50%; background:var(--green-500); color:var(--navy-950); display:flex; align-items:center; justify-content:center; font-weight:700; font-family:var(--font-display); flex:none;}
+
+  .hero{background:radial-gradient(600px 320px at 15% -10%, var(--navy-700), transparent), linear-gradient(180deg, var(--navy-900), var(--navy-950)); color:var(--white); padding:40px 0 44px; overflow:hidden; position:relative;}
+  .eyebrow{display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; color:var(--green-400); text-transform:uppercase; border:1px solid rgba(63,201,138,.35); padding:6px 12px; border-radius:999px; margin-bottom:18px;}
+  .hero h1{font-size:30px; margin-bottom:14px;}
+  .hero h1 em{font-style:normal; color:var(--green-400);}
+  .hero p.lead{font-size:15px; color:#C9D3E0; margin-bottom:24px;}
+  .hero-ctas{display:flex; flex-direction:column; gap:10px; margin-bottom:36px;}
+
+  .waybill{background:var(--white); color:var(--ink-900); border-radius:var(--radius); padding:20px 20px 18px; position:relative; box-shadow:0 24px 50px -18px rgba(0,0,0,.5); transform:rotate(-1deg);}
+  .waybill::before{content:attr(data-preview); position:absolute; top:13px; right:-32px; background:var(--amber-500); color:var(--navy-950); font-family:var(--font-mono); font-size:9.5px; font-weight:600; letter-spacing:.08em; padding:3px 34px; transform:rotate(35deg);}
+  .waybill-top{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px;}
+  .waybill-label{font-size:10.5px; color:var(--ink-600); text-transform:uppercase; letter-spacing:.08em; margin-bottom:4px;}
+  .waybill-num{font-family:var(--font-mono); font-size:16px; font-weight:600;}
+  .status-chip{font-family:var(--font-mono); font-size:10.5px; font-weight:600; letter-spacing:.04em; background:var(--green-050); color:var(--green-500); padding:5px 10px; border-radius:999px; white-space:nowrap;}
+  .waybill-route{display:flex; align-items:center; gap:10px; margin:16px 0; font-family:var(--font-mono); font-size:13px;}
+  .route-dot{width:8px; height:8px; border-radius:50%; background:var(--navy-800); flex:none;}
+  .route-line{flex:1; height:1px; background:repeating-linear-gradient(90deg, var(--ink-600) 0 4px, transparent 4px 8px); position:relative;}
+  .route-line svg{position:absolute; top:-8px; left:50%; transform:translateX(-50%);}
+  .waybill-cut{border-top:2px dashed #D8D3C4; margin:16px -20px 14px;}
+  .waybill-meta{display:flex; justify-content:space-between; font-size:11.5px; color:var(--ink-600);}
+  .waybill-meta b{color:var(--ink-900); font-family:var(--font-mono); font-weight:600;}
+
+  .marquee{background:var(--navy-950); border-top:1px solid var(--line); border-bottom:1px solid var(--line); overflow:hidden; padding:10px 0;}
+  .marquee-track{display:flex; width:max-content; animation:marqueeMove 16s linear infinite;}
+  .marquee-group{display:flex; gap:36px; padding-right:36px; flex:none;}
+  .marquee-track span{font-family:var(--font-mono); font-size:11.5px; color:var(--green-400); white-space:nowrap; letter-spacing:.03em; display:inline-flex; align-items:center; gap:6px;}
+  .marquee-track svg{width:13px; height:13px; flex:none;}
+  @keyframes marqueeMove{ from{transform:translateX(-50%);} to{transform:translateX(0%);} }
+
+  section{padding:44px 0;}
+  .section-head{margin-bottom:26px;}
+  .section-eyebrow{font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--green-500); margin-bottom:8px; display:block;}
+  .section-head h2{font-size:22px; color:var(--navy-900); margin-bottom:8px;}
+  .section-head p{color:var(--ink-600); font-size:14px;}
+
+  .services-grid{display:flex; flex-direction:column; gap:12px;}
+  .service-card{border-radius:var(--radius); padding:20px; color:var(--white); position:relative; overflow:hidden;}
+  .service-card h3{font-size:17px; margin-bottom:8px; color:var(--white);}
+  .service-card p{font-size:13px; color:rgba(255,255,255,.82); margin-bottom:12px;}
+  .service-card a{font-size:13px; font-weight:600; display:inline-flex; align-items:center; gap:6px; color:var(--white);}
+  .service-tag{font-family:var(--font-mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; background:rgba(255,255,255,.16); padding:4px 9px; border-radius:999px; display:inline-block; margin-bottom:10px;}
+  .card-maritime{background:linear-gradient(135deg,#123A63,#0A2647);}
+  .card-aerien{background:linear-gradient(135deg,#C2540F,#8C3B0A);}
+  .card-douane{background:linear-gradient(135deg,#8A6D0E,#5E4A08);}
+  .card-stockage{background:linear-gradient(135deg,#166534,#0F4A26);}
+  .card-livraison{background:linear-gradient(135deg,#0F766E,#0A5750);}
+
+  .compare{background:var(--white); border-radius:var(--radius); border:1px solid #E7E2D3; overflow:hidden;}
+  .compare-col{padding:22px 20px;}
+  .compare-col + .compare-col{border-top:1px solid #E7E2D3;}
+  .compare-col h3{font-size:16px; margin-bottom:12px; display:flex; align-items:center; gap:8px;}
+  .compare-row{display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px dashed #E7E2D3; font-size:13px;}
+  .compare-row:last-child{border-bottom:none;}
+  .compare-row span:first-child{color:var(--ink-600);}
+  .compare-row b{font-family:var(--font-mono); font-weight:600;}
+
+  .steps{display:flex; flex-direction:column;}
+  .step{display:flex; gap:14px; padding:16px 0; border-bottom:1px solid #E7E2D3;}
+  .step:last-child{border-bottom:none;}
+  .step-num{font-family:var(--font-mono); font-weight:600; font-size:13px; color:var(--green-500); width:32px; height:32px; border-radius:50%; border:1px solid var(--green-500); display:flex; align-items:center; justify-content:center; flex:none;}
+  .step h3{font-size:14.5px; margin-bottom:4px; color:var(--navy-900);}
+  .step p{font-size:13px; color:var(--ink-600);}
+
+  .faq-item{border-bottom:1px solid #E7E2D3; padding:14px 0;}
+  .faq-item h3{font-size:14.5px; color:var(--navy-900); margin-bottom:6px;}
+  .faq-item p{font-size:13px; color:var(--ink-600);}
+
+  .band{background:var(--navy-900); color:var(--white); border-radius:var(--radius); padding:30px 22px; text-align:center;}
+  .band h2{font-size:20px; margin-bottom:10px;}
+  .band p{color:#C9D3E0; font-size:13.5px; margin:0 auto 18px;}
+
+  .contact-band{background:linear-gradient(135deg, var(--green-500), #128A56); border-radius:var(--radius); padding:28px 22px; color:var(--navy-950);}
+  .contact-band h2{font-size:20px; margin-bottom:8px;}
+  .contact-band p{font-size:13.5px; margin-bottom:18px;}
+  .contact-methods{display:flex; flex-direction:column; gap:10px;}
+  .contact-methods .btn-ghost{border-color:rgba(10,25,46,.35); color:var(--navy-950);}
+
+  footer{background:var(--navy-950); color:#8FA0B8; padding:40px 0 24px; margin-top:16px;}
+  .foot-grid{display:flex; flex-direction:column; gap:26px; margin-bottom:28px;}
+  .foot-brand p{font-size:12.5px; margin-top:12px; color:#7386A0;}
+  footer h4{color:var(--white); font-size:12.5px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:12px; font-family:var(--font-body); font-weight:600;}
+  footer ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px;}
+  footer a{font-size:13px; color:#B9C3D2;}
+  footer a:hover{color:var(--white);}
+  .foot-bottom{border-top:1px solid var(--line); padding-top:18px; font-size:11.5px; color:#657795; display:flex; flex-direction:column; gap:6px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <span class="brand-mark">T</span>
+      <span class="brand-word">TLC INTERNATIONAL CARGO<span data-i18n="brand.tagline">Votre Cargo, Notre Priorité</span></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="sidebar"><span></span></button>
+  </div>
+</header>
+
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<aside class="sidebar" id="sidebar">
+  <button class="sidebar-close" id="sidebar-close" aria-label="Fermer le menu">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <a class="brand" href="/">
+    <span class="brand-mark">T</span>
+    <span class="brand-word">TLC INTERNATIONAL CARGO<span data-i18n="brand.tagline">Votre Cargo, Notre Priorité</span></span>
+  </a>
+  <nav class="sidebar-nav">
+    <a href="/services" data-i18n="nav.services">Services</a>
+    <a href="/fonctionnement" data-i18n="nav.fonctionnement">Fonctionnement</a>
+    <a href="/suivi" data-i18n="nav.suivi">Suivre un colis</a>
+    <a href="/temoignages" data-i18n="nav.temoignages">Témoignages</a>
+    <a href="/faq" data-i18n="nav.faq">FAQ</a>
+    <a href="/contact" data-i18n="nav.contact">Contact</a>
+  </nav>
+  <div class="lang-switch">
+    <button type="button" data-lang="fr">FR</button>
+    <button type="button" data-lang="en">EN</button>
+  </div>
+  <div id="sidebar-auth"></div>
+</aside>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="hero.eyebrow">Yiwu · Chine → Douala · Cameroun</span>
+    <h1 data-i18n-html="hero.title">Votre cargo,<br><em>notre priorité.</em></h1>
+    <p class="lead" data-i18n="hero.lead">Importation, transit international, stockage temporaire et livraison de vos colis — pris en charge de bout en bout, avec un suivi clair à chaque étape.</p>
+    <div class="hero-ctas">
+      <a href="/suivi" class="btn btn-primary" data-i18n="hero.cta_track">Suivre mon colis</a>
+      <a href="https://wa.me/237698178294" class="btn btn-ghost" target="_blank" rel="noopener" data-i18n="hero.cta_whatsapp">Discuter sur WhatsApp</a>
+    </div>
+
+    <div class="waybill" role="img" aria-label="Exemple d'aperçu de suivi de colis" data-preview="APERÇU" id="waybill">
+      <div class="waybill-top">
+        <div>
+          <div class="waybill-label" data-i18n="waybill.number_label">N° de colis</div>
+          <div class="waybill-num">TLC-2026-004821</div>
+        </div>
+        <span class="status-chip" data-i18n="waybill.status">EN TRANSPORT</span>
+      </div>
+      <div class="waybill-route">
+        <span class="route-dot"></span>
+        <span class="route-line"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A1F3D" stroke-width="1.6"><path d="M2 12h15M12 5l7 7-7 7"/></svg></span>
+        <span class="route-dot"></span>
+      </div>
+      <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--ink-600); font-family:var(--font-mono); margin-top:-8px; margin-bottom:8px;">
+        <span>YIW</span><span>DLA</span>
+      </div>
+      <div class="waybill-cut"></div>
+      <div class="waybill-meta">
+        <span data-i18n-html="waybill.eta_label">Arrivée estimée<br><b>12 août 2026</b></span>
+        <span data-i18n-html="waybill.freight_label">Fret<br><b>Maritime</b></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee-track"></div></div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow" data-i18n="services.eyebrow">Nos services</span>
+      <h2 data-i18n="services.title">Chaque étape, entre de bonnes mains</h2>
+      <p data-i18n="services.subtitle">De l'entrepôt à Yiwu jusqu'à votre porte à Douala, cinq métiers, un seul interlocuteur.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card card-maritime">
+        <span class="service-tag" data-i18n="services.maritime.tag">Fret maritime</span>
+        <h3 data-i18n="services.maritime.title">Transit international</h3>
+        <p data-i18n="services.maritime.desc">L'option économique pour les gros volumes, groupage LCL depuis Yiwu.</p>
+        <a href="/services" data-i18n="services.more">En savoir plus →</a>
+      </div>
+      <div class="service-card card-aerien">
+        <span class="service-tag" data-i18n="services.aerien.tag">Fret aérien</span>
+        <h3 data-i18n="services.aerien.title">Importation express</h3>
+        <p data-i18n="services.aerien.desc">Pour vos marchandises urgentes ou à forte valeur, livrées en quelques jours.</p>
+        <a href="/services" data-i18n="services.more">En savoir plus →</a>
+      </div>
+      <div class="service-card card-douane">
+        <span class="service-tag" data-i18n="services.douane.tag">Dédouanement</span>
+        <h3 data-i18n="services.douane.title">Accompagnement douane</h3>
+        <p data-i18n="services.douane.desc">Formalités, documents et frais gérés pour vous, sans mauvaise surprise.</p>
+        <a href="/services" data-i18n="services.more">En savoir plus →</a>
+      </div>
+      <div class="service-card card-stockage">
+        <span class="service-tag" data-i18n="services.stockage.tag">Entrepôt</span>
+        <h3 data-i18n="services.stockage.title">Stockage temporaire</h3>
+        <p data-i18n="services.stockage.desc">Vos colis en sécurité dans notre dépôt, jusqu'à votre récupération.</p>
+        <a href="/services" data-i18n="services.more">En savoir plus →</a>
+      </div>
+      <div class="service-card card-livraison">
+        <span class="service-tag" data-i18n="services.livraison.tag">Dernier km</span>
+        <h3 data-i18n="services.livraison.title">Livraison</h3>
+        <p data-i18n="services.livraison.desc">Remise en main propre ou point de retrait, à votre convenance.</p>
+        <a href="/services" data-i18n="services.more">En savoir plus →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow" data-i18n="compare.eyebrow">Bateau ou avion ?</span>
+      <h2 data-i18n="compare.title">La question qu'on nous pose le plus</h2>
+      <p data-i18n="compare.subtitle">La réponse dépend de votre budget, du volume et de l'urgence. Un aperçu :</p>
+    </div>
+    <div class="compare">
+      <div class="compare-col">
+        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#17406B" stroke-width="1.8"><path d="M3 18l1.5-6h15L21 18"/><path d="M6 12V6h8l3 6"/><path d="M2 21c1 .8 2.2 1 3.5 1s2.5-.4 3.5-1c1 .6 2.2 1 3.5 1s2.5-.4 3.5-1c1 .6 2.2 1 3.5 1"/></svg> <span data-i18n="compare.sea.title">Fret maritime</span></h3>
+        <div class="compare-row"><span data-i18n="compare.delay">Délai</span><b data-i18n="compare.sea.delay">25 à 40 jours</b></div>
+        <div class="compare-row"><span data-i18n="compare.price">Prix</span><b data-i18n="compare.sea.price">dès 850 USD/CBM</b></div>
+        <div class="compare-row"><span data-i18n="compare.ideal">Idéal pour</span><b data-i18n="compare.sea.ideal">gros volumes</b></div>
+      </div>
+      <div class="compare-col">
+        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C2540F" stroke-width="2"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4Z"/></svg> <span data-i18n="compare.air.title">Fret aérien</span></h3>
+        <div class="compare-row"><span data-i18n="compare.delay">Délai</span><b data-i18n="compare.air.delay">4 à 7 jours</b></div>
+        <div class="compare-row"><span data-i18n="compare.price">Prix</span><b data-i18n="compare.air.price">5 à 8x le maritime</b></div>
+        <div class="compare-row"><span data-i18n="compare.ideal">Idéal pour</span><b data-i18n="compare.air.ideal">colis urgents</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fonctionnement">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow" data-i18n="steps.eyebrow">Fonctionnement</span>
+      <h2 data-i18n="steps.title">Le parcours de votre colis</h2>
+      <p data-i18n="steps.subtitle">Six étapes, du premier contact jusqu'à la remise entre vos mains.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="step-num">1</span><div><h3 data-i18n="steps.s1.title">Vous nous contactez</h3><p data-i18n="steps.s1.desc">Par WhatsApp ou depuis le site, avec le détail de votre commande.</p></div></div>
+      <div class="step"><span class="step-num">2</span><div><h3 data-i18n="steps.s2.title">Prise en charge à Yiwu</h3><p data-i18n="steps.s2.desc">Votre marchandise est réceptionnée et vérifiée dans notre entrepôt.</p></div></div>
+      <div class="step"><span class="step-num">3</span><div><h3 data-i18n="steps.s3.title">Transport organisé</h3><p data-i18n="steps.s3.desc">Maritime ou aérien selon votre besoin, dédouanement inclus.</p></div></div>
+      <div class="step"><span class="step-num">4</span><div><h3 data-i18n="steps.s4.title">Arrivée au dépôt</h3><p data-i18n="steps.s4.desc">Le colis est réceptionné et enregistré à Douala.</p></div></div>
+      <div class="step"><span class="step-num">5</span><div><h3 data-i18n="steps.s5.title">Vous êtes informé</h3><p data-i18n="steps.s5.desc">Notification par email dès que le statut change.</p></div></div>
+      <div class="step"><span class="step-num">6</span><div><h3 data-i18n="steps.s6.title">Récupération ou livraison</h3><p data-i18n="steps.s6.desc">Vous choisissez : retrait au dépôt ou livraison à domicile.</p></div></div>
+    </div>
+    <a href="/fonctionnement" class="btn btn-ghost" style="border-color:#D8D3C4; color:var(--navy-900); margin-top:20px;" data-i18n="steps.more">Voir le détail du processus →</a>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="band">
+      <h2 data-i18n="testi.title">Ce que nos clients en disent</h2>
+      <p data-i18n="testi.subtitle">Des importateurs qui nous confient leur cargo depuis Yiwu jusqu'à Douala.</p>
+      <a href="/temoignages" class="btn btn-primary" data-i18n="testi.cta">Voir les témoignages</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow" data-i18n="faq.eyebrow">Questions fréquentes</span>
+      <h2 data-i18n="faq.title">Avant de vous lancer</h2>
+    </div>
+    <div class="faq-item"><h3 data-i18n="faq.q1.q">Dois-je envoyer par bateau ou par avion ?</h3><p data-i18n="faq.q1.a">Pour des commandes de plus de 300 kg ou plus d'1 CBM, le maritime est systématique. Pour du léger, urgent ou à forte valeur, l'aérien est recommandé.</p></div>
+    <div class="faq-item"><h3 data-i18n="faq.q2.q">Comment suivre mon colis ?</h3><p data-i18n="faq.q2.a">Créez un compte, et retrouvez le statut de chacun de vos colis en temps réel depuis votre espace client.</p></div>
+    <div class="faq-item"><h3 data-i18n="faq.q3.q">Combien de temps mes colis restent-ils stockés ?</h3><p data-i18n="faq.q3.a">Aussi longtemps que nécessaire jusqu'à leur récupération — nous vous prévenons dès leur arrivée.</p></div>
+    <a href="/faq" class="btn btn-ghost" style="border-color:#D8D3C4; color:var(--navy-900); margin-top:18px;" data-i18n="faq.more">Toutes les questions →</a>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="contact-band">
+      <h2 data-i18n="contact.title">Une commande à nous confier ?</h2>
+      <p data-i18n="contact.subtitle">Notre équipe répond personnellement pour vous expliquer comment nous pouvons vous aider.</p>
+      <div class="contact-methods">
+        <a href="https://wa.me/237698178294" class="btn" style="background:var(--navy-950); color:var(--white);" target="_blank" rel="noopener">WhatsApp — 698 17 82 94</a>
+        <a href="mailto:hurishmomo@gmail.com" class="btn btn-ghost">hurishmomo@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="/"><span class="brand-mark">T</span><span class="brand-word" style="color:#fff;">TLC INTERNATIONAL CARGO</span></a>
+        <p data-i18n="footer.desc">Transit international, importation, stockage et livraison entre Yiwu (Chine) et Douala (Cameroun).</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.nav_title">Navigation</h4>
+        <ul>
+          <li><a href="/services" data-i18n="nav.services">Services</a></li>
+          <li><a href="/fonctionnement" data-i18n="nav.fonctionnement">Fonctionnement</a></li>
+          <li><a href="/temoignages" data-i18n="nav.temoignages">Témoignages</a></li>
+          <li><a href="/faq" data-i18n="nav.faq">FAQ</a></li>
+          <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.contact_title">Contact</h4>
+        <ul>
+          <li><a href="https://wa.me/237698178294" target="_blank" rel="noopener">WhatsApp · 698 17 82 94</a></li>
+          <li><a href="tel:+8613237578986">+86 132 3757 8986</a></li>
+          <li><a href="mailto:hurishmomo@gmail.com">hurishmomo@gmail.com</a></li>
+          <li data-i18n="footer.location">Yiwu, Chine</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span data-i18n="footer.rights">© 2026 TLC International Cargo. Tous droits réservés.</span>
+      <span data-i18n="brand.tagline">Votre Cargo, Notre Priorité</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const sidebar = document.getElementById('sidebar');
+  const backdrop = document.getElementById('sidebar-backdrop');
+  const closeBtn = document.getElementById('sidebar-close');
+  function openSidebar(){ sidebar.classList.add('open'); backdrop.classList.add('open'); burger.setAttribute('aria-expanded','true'); }
+  function closeSidebar(){ sidebar.classList.remove('open'); backdrop.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+  burger.addEventListener('click', openSidebar);
+  closeBtn.addEventListener('click', closeSidebar);
+  backdrop.addEventListener('click', closeSidebar);
+
+  async function checkAuth(){
+    try{ const res = await fetch('/api/auth/check'); renderAuthUI(await res.json()); }
+    catch(e){ renderAuthUI({ authenticated:false }); }
+  }
+  function renderAuthUI(data){
+    const slot = document.getElementById('sidebar-auth');
+    const lang = getLang();
+    if (data.authenticated){
+      const isAdmin = data.user.role === 'admin';
+      const initiale = (data.user.nom_complet || 'U').charAt(0).toUpperCase();
+      const roleLabel = isAdmin ? (lang==='fr'?'Administrateur':'Administrator') : (lang==='fr'?'Client':'Customer');
+      const spaceLabel = isAdmin ? (lang==='fr'?'Espace admin':'Admin area') : (lang==='fr'?'Mes colis':'My parcels');
+      const logoutLabel = lang==='fr'?'Se déconnecter':'Log out';
+      slot.innerHTML =
+        '<div class="sidebar-user"><span class="user-avatar">' + initiale + '</span>' +
+        '<div><b>' + data.user.nom_complet + '</b><br><span style="color:#8FA0B8;">' + roleLabel + '</span></div></div>' +
+        '<a href="' + (isAdmin ? '/admin' : '/suivi') + '" class="btn btn-primary btn-block">' + spaceLabel + '</a>' +
+        '<button class="btn btn-ghost btn-block" id="logout-btn" type="button">' + logoutLabel + '</button>';
+      document.getElementById('logout-btn').addEventListener('click', async () => {
+        await fetch('/api/auth/logout', { method:'POST' }); window.location.href = '/';
+      });
+    } else {
+      const loginLabel = lang==='fr'?'Se connecter':'Log in';
+      const signupLabel = lang==='fr'?'Créer un compte':'Create an account';
+      slot.innerHTML = '<a href="/login" class="btn btn-ghost btn-block">' + loginLabel + '</a><a href="/signup" class="btn btn-primary btn-block">' + signupLabel + '</a>';
+    }
+  }
+
+  // ---------- Multilangue (FR / EN) — cookie partagé sur tout le site ----------
+  const translations = {
+    'brand.tagline': { fr:'Votre Cargo, Notre Priorité', en:'Your Cargo, Our Priority' },
+    'nav.services': { fr:'Services', en:'Services' },
+    'nav.fonctionnement': { fr:'Fonctionnement', en:'How it works' },
+    'nav.suivi': { fr:'Suivre un colis', en:'Track a parcel' },
+    'nav.temoignages': { fr:'Témoignages', en:'Testimonials' },
+    'nav.faq': { fr:'FAQ', en:'FAQ' },
+    'nav.contact': { fr:'Contact', en:'Contact' },
+    'hero.eyebrow': { fr:'Yiwu · Chine → Douala · Cameroun', en:'Yiwu · China → Douala · Cameroon' },
+    'hero.lead': { fr:"Importation, transit international, stockage temporaire et livraison de vos colis — pris en charge de bout en bout, avec un suivi clair à chaque étape.", en:'Importing, international freight forwarding, temporary storage and delivery of your parcels — handled end to end, with clear tracking at every step.' },
+    'hero.cta_track': { fr:'Suivre mon colis', en:'Track my parcel' },
+    'hero.cta_whatsapp': { fr:'Discuter sur WhatsApp', en:'Chat on WhatsApp' },
+    'waybill.number_label': { fr:'N° de colis', en:'Parcel No.' },
+    'waybill.status': { fr:'EN TRANSPORT', en:'IN TRANSIT' },
+    'waybill.preview': { fr:'APERÇU', en:'PREVIEW' },
+    'waybill.eta_label': { fr:'Arrivée estimée<br><b>12 août 2026</b>', en:'Estimated arrival<br><b>Aug 12, 2026</b>' },
+    'waybill.freight_label': { fr:'Fret<br><b>Maritime</b>', en:'Freight<br><b>Sea</b>' },
+    'hero.title': { fr:'Votre cargo,<br><em>notre priorité.</em>', en:'Your cargo,<br><em>our priority.</em>' },
+    'services.eyebrow': { fr:'Nos services', en:'Our services' },
+    'services.title': { fr:'Chaque étape, entre de bonnes mains', en:'Every step, in good hands' },
+    'services.subtitle': { fr:"De l'entrepôt à Yiwu jusqu'à votre porte à Douala, cinq métiers, un seul interlocuteur.", en:'From our warehouse in Yiwu to your door in Douala, five trades, one point of contact.' },
+    'services.more': { fr:'En savoir plus →', en:'Learn more →' },
+    'services.maritime.tag': { fr:'Fret maritime', en:'Sea freight' },
+    'services.maritime.title': { fr:'Transit international', en:'International freight forwarding' },
+    'services.maritime.desc': { fr:"L'option économique pour les gros volumes, groupage LCL depuis Yiwu.", en:'The economical option for large volumes, LCL groupage from Yiwu.' },
+    'services.aerien.tag': { fr:'Fret aérien', en:'Air freight' },
+    'services.aerien.title': { fr:'Importation express', en:'Express import' },
+    'services.aerien.desc': { fr:'Pour vos marchandises urgentes ou à forte valeur, livrées en quelques jours.', en:'For urgent or high-value goods, delivered within days.' },
+    'services.douane.tag': { fr:'Dédouanement', en:'Customs clearance' },
+    'services.douane.title': { fr:'Accompagnement douane', en:'Customs support' },
+    'services.douane.desc': { fr:'Formalités, documents et frais gérés pour vous, sans mauvaise surprise.', en:'Paperwork, documents and fees handled for you, no surprises.' },
+    'services.stockage.tag': { fr:'Entrepôt', en:'Warehouse' },
+    'services.stockage.title': { fr:'Stockage temporaire', en:'Temporary storage' },
+    'services.stockage.desc': { fr:"Vos colis en sécurité dans notre dépôt, jusqu'à votre récupération.", en:'Your parcels kept safe in our depot until you pick them up.' },
+    'services.livraison.tag': { fr:'Dernier km', en:'Last mile' },
+    'services.livraison.title': { fr:'Livraison', en:'Delivery' },
+    'services.livraison.desc': { fr:'Remise en main propre ou point de retrait, à votre convenance.', en:'Hand delivery or pickup point, whichever suits you.' },
+    'compare.eyebrow': { fr:'Bateau ou avion ?', en:'Ship or plane?' },
+    'compare.title': { fr:"La question qu'on nous pose le plus", en:'The question we get asked the most' },
+    'compare.subtitle': { fr:"La réponse dépend de votre budget, du volume et de l'urgence. Un aperçu :", en:'The answer depends on your budget, volume and urgency. A quick overview:' },
+    'compare.delay': { fr:'Délai', en:'Transit time' },
+    'compare.price': { fr:'Prix', en:'Price' },
+    'compare.ideal': { fr:'Idéal pour', en:'Best for' },
+    'compare.sea.title': { fr:'Fret maritime', en:'Sea freight' },
+    'compare.sea.delay': { fr:'25 à 40 jours', en:'25 to 40 days' },
+    'compare.sea.price': { fr:'dès 850 USD/CBM', en:'from $850/CBM' },
+    'compare.sea.ideal': { fr:'gros volumes', en:'large volumes' },
+    'compare.air.title': { fr:'Fret aérien', en:'Air freight' },
+    'compare.air.delay': { fr:'4 à 7 jours', en:'4 to 7 days' },
+    'compare.air.price': { fr:'5 à 8x le maritime', en:'5 to 8x sea freight' },
+    'compare.air.ideal': { fr:'colis urgents', en:'urgent parcels' },
+    'steps.eyebrow': { fr:'Fonctionnement', en:'How it works' },
+    'steps.title': { fr:'Le parcours de votre colis', en:"Your parcel's journey" },
+    'steps.subtitle': { fr:"Six étapes, du premier contact jusqu'à la remise entre vos mains.", en:'Six steps, from first contact to hand delivery.' },
+    'steps.more': { fr:'Voir le détail du processus →', en:'See the full process →' },
+    'steps.s1.title': { fr:'Vous nous contactez', en:'You contact us' },
+    'steps.s1.desc': { fr:'Par WhatsApp ou depuis le site, avec le détail de votre commande.', en:'Via WhatsApp or the site, with your order details.' },
+    'steps.s2.title': { fr:'Prise en charge à Yiwu', en:'Pickup in Yiwu' },
+    'steps.s2.desc': { fr:'Votre marchandise est réceptionnée et vérifiée dans notre entrepôt.', en:'Your goods are received and checked at our warehouse.' },
+    'steps.s3.title': { fr:'Transport organisé', en:'Shipping arranged' },
+    'steps.s3.desc': { fr:'Maritime ou aérien selon votre besoin, dédouanement inclus.', en:'Sea or air freight based on your needs, customs clearance included.' },
+    'steps.s4.title': { fr:'Arrivée au dépôt', en:'Arrival at our depot' },
+    'steps.s4.desc': { fr:'Le colis est réceptionné et enregistré à Douala.', en:'The parcel is received and logged in Douala.' },
+    'steps.s5.title': { fr:'Vous êtes informé', en:"You're notified" },
+    'steps.s5.desc': { fr:'Notification par email dès que le statut change.', en:'Email notification as soon as the status changes.' },
+    'steps.s6.title': { fr:'Récupération ou livraison', en:'Pickup or delivery' },
+    'steps.s6.desc': { fr:'Vous choisissez : retrait au dépôt ou livraison à domicile.', en:'Your choice: pick up at the depot or home delivery.' },
+    'testi.title': { fr:'Ce que nos clients en disent', en:'What our customers say' },
+    'testi.subtitle': { fr:'Des importateurs qui nous confient leur cargo depuis Yiwu jusqu\'à Douala.', en:'Importers who trust us with their cargo from Yiwu to Douala.' },
+    'testi.cta': { fr:'Voir les témoignages', en:'See testimonials' },
+    'faq.eyebrow': { fr:'Questions fréquentes', en:'Frequently asked questions' },
+    'faq.title': { fr:'Avant de vous lancer', en:'Before you get started' },
+    'faq.more': { fr:'Toutes les questions →', en:'All questions →' },
+    'faq.q1.q': { fr:'Dois-je envoyer par bateau ou par avion ?', en:'Should I ship by sea or by air?' },
+    'faq.q1.a': { fr:"Pour des commandes de plus de 300 kg ou plus d'1 CBM, le maritime est systématique. Pour du léger, urgent ou à forte valeur, l'aérien est recommandé.", en:'For orders over 300 kg or 1 CBM, sea freight is standard. For light, urgent or high-value items, air freight is recommended.' },
+    'faq.q2.q': { fr:'Comment suivre mon colis ?', en:'How do I track my parcel?' },
+    'faq.q2.a': { fr:'Créez un compte, et retrouvez le statut de chacun de vos colis en temps réel depuis votre espace client.', en:'Create an account and see the real-time status of every parcel from your client area.' },
+    'faq.q3.q': { fr:'Combien de temps mes colis restent-ils stockés ?', en:'How long are my parcels stored?' },
+    'faq.q3.a': { fr:'Aussi longtemps que nécessaire jusqu\'à leur récupération — nous vous prévenons dès leur arrivée.', en:"As long as needed until pickup — we'll notify you as soon as they arrive." },
+    'contact.title': { fr:'Une commande à nous confier ?', en:'Have a shipment for us?' },
+    'contact.subtitle': { fr:'Notre équipe répond personnellement pour vous expliquer comment nous pouvons vous aider.', en:'Our team replies personally to explain how we can help.' },
+    'footer.desc': { fr:'Transit international, importation, stockage et livraison entre Yiwu (Chine) et Douala (Cameroun).', en:'International freight forwarding, importing, storage and delivery between Yiwu (China) and Douala (Cameroon).' },
+    'footer.nav_title': { fr:'Navigation', en:'Navigation' },
+    'footer.contact_title': { fr:'Contact', en:'Contact' },
+    'footer.location': { fr:'Yiwu, Chine', en:'Yiwu, China' },
+    'footer.rights': { fr:'© 2026 TLC International Cargo. Tous droits réservés.', en:'© 2026 TLC International Cargo. All rights reserved.' },
+    'marquee.reliability': { fr:'FIABILITÉ', en:'RELIABILITY' },
+    'marquee.expertise': { fr:'EXPERTISE', en:'EXPERTISE' },
+    'marquee.commitment': { fr:'ENGAGEMENT', en:'COMMITMENT' },
+    'marquee.air': { fr:'AÉRIEN 4–7 JOURS', en:'AIR FREIGHT 4–7 DAYS' },
+    'marquee.sea': { fr:'MARITIME DÈS 850 USD/CBM', en:'SEA FREIGHT FROM $850/CBM' },
+    'marquee.tracking': { fr:'SUIVI EN TEMPS RÉEL', en:'REAL-TIME TRACKING' },
+    'marquee.customs': { fr:'DÉDOUANEMENT INCLUS', en:'CUSTOMS CLEARANCE INCLUDED' },
+  };
+
+  const MARQUEE_ICONS = [
+    ['<path d="M12 2 4 5v6c0 5 3.4 8.4 8 11 4.6-2.6 8-6 8-11V5l-8-3z"/>', 'marquee.reliability'],
+    ['<circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/>', 'marquee.expertise'],
+    ['<path d="M12 2l2.4 2.4 3.4-.3.3 3.4L20.5 10l-2.4 2.4.3 3.4-3.4.3L12 18.5l-2.4-2.4-3.4.3-.3-3.4L3.5 10l2.4-2.4-.3-3.4 3.4-.3z"/><path d="m9 12 2 2 4-4"/>', 'marquee.commitment'],
+    ['<path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4Z"/>', 'marquee.air'],
+    ['<path d="M3 18l1.5-6h15L21 18"/><path d="M6 12V6h8l3 6"/><path d="M2 21c1 .8 2.2 1 3.5 1s2.5-.4 3.5-1c1 .6 2.2 1 3.5 1s2.5-.4 3.5-1c1 .6 2.2 1 3.5 1"/>', 'marquee.sea'],
+    ['<path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/>', 'marquee.tracking'],
+    ['<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V2h6v2"/><path d="m9 13 2 2 4-4"/>', 'marquee.customs'],
+  ];
+  function buildMarquee(lang){
+    const group = MARQUEE_ICONS.map(([svg,key]) => '<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">'+svg+'</svg>'+translations[key][lang]+'</span>').join('');
+    document.getElementById('marquee-track').innerHTML = '<div class="marquee-group">'+group+'</div><div class="marquee-group">'+group+'</div>';
+  }
+
+  function getLang(){
+    const m = document.cookie.match(/(?:^|;\s*)lang=(fr|en)/);
+    return m ? m[1] : 'fr';
+  }
+  function setLang(lang){
+    document.cookie = 'lang=' + lang + ';path=/;max-age=' + (365*24*60*60);
+    applyLang(lang);
+  }
+  function applyLang(lang){
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const t = translations[el.getAttribute('data-i18n')];
+      if (t) el.textContent = t[lang];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const t = translations[el.getAttribute('data-i18n-html')];
+      if (t) el.innerHTML = t[lang];
+    });
+    document.getElementById('waybill').setAttribute('data-preview', translations['waybill.preview'][lang]);
+    buildMarquee(lang);
+    document.querySelectorAll('.lang-switch button').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    renderAuthUI(window.__authState || { authenticated:false });
+  }
+  document.querySelectorAll('.lang-switch button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+  (async function init(){
+    try{ const res = await fetch('/api/auth/check'); window.__authState = await res.json(); }
+    catch(e){ window.__authState = { authenticated:false }; }
+    applyLang(getLang());
+  })();
+</script>
+
+</body>
+</html>
