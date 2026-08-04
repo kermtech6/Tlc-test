@@ -2,25 +2,20 @@
 <html lang="fr" data-theme="light">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
-<title data-i18n="meta.title">TLC International Cargo — Votre cargo, notre priorite</title>
-<meta name="description" content="Transit international, importation, stockage temporaire et livraison de vos colis entre Yiwu et Douala. Suivez votre cargo a chaque etape.">
+<title data-i18n="meta.title">Connexion — TLC International Cargo</title>
+<meta name="description" content="Connectez-vous a votre espace TLC International Cargo pour suivre vos colis.">
+<meta name="robots" content="noindex">
 
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="TLC International Cargo">
-<meta property="og:description" content="Transit international, importation, stockage et livraison de vos colis entre la Chine et le Cameroun.">
-<meta property="og:image" content="https://i.ibb.co/9mGwk3Qc/Lord-Kerm.jpg">
-<meta property="og:url" content="https://tlccargo.vercel.app">
+<meta property="og:description" content="Suivez vos colis entre la Chine et le Cameroun.">
+<meta property="og:image" content="https://i.ibb.co/v4M4QCH2/Lord-Kerm.jpg">
 
-<!-- Icones : le logo du site -->
-<link rel="icon" href="https://files.catbox.moe/dquzp7.jpeg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://i.ibb.co/9mGwk3Qc/Lord-Kerm.jpg">
-<link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/9mGwk3Qc/Lord-Kerm.jpg">
-<link rel="apple-touch-icon" href="https://i.ibb.co/9mGwk3Qc/Lord-Kerm.jpg">
+<link rel="icon" href="https://i.ibb.co/v4M4QCH2/Lord-Kerm.jpg">
+<link rel="apple-touch-icon" href="https://i.ibb.co/v4M4QCH2/Lord-Kerm.jpg">
 
-<!-- Application installee sur l'ecran d'accueil -->
 <meta name="theme-color" content="#0A1F3D">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -31,514 +26,197 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 
-<!-- Applique le theme AVANT le premier rendu : evite le clignotement blanc
-     quand un utilisateur en mode sombre ouvre la page. -->
 <script>
 (function () {
   var m = document.cookie.match(/(?:^|;\s*)theme=(light|dark)/);
-  var t = m ? m[1] : (localStorage.getItem('tlc_theme') || 'light');
-  document.documentElement.setAttribute('data-theme', t);
+  document.documentElement.setAttribute('data-theme', m ? m[1] : (localStorage.getItem('tlc_theme') || 'light'));
   var l = document.cookie.match(/(?:^|;\s*)lang=(fr|en)/);
   document.documentElement.lang = l ? l[1] : ((navigator.language || 'fr').toLowerCase().indexOf('en') === 0 ? 'en' : 'fr');
 })();
 </script>
 
 <style>
-/* ============================================================
-   1. JETONS
-   ============================================================ */
-:root {
-  --navy-950:#071627;
-  --navy-900:#0A1F3D;
-  --navy-800:#0F2A4D;
-  --navy-700:#17406B;
-
-  --green-500:#1FAE6E;
-  --green-400:#3FC98A;
-  --green-050:#EAFBF2;
-
+:root{
+  --navy-950:#071627;--navy-900:#0A1F3D;--navy-800:#0F2A4D;--navy-700:#17406B;
+  --green-500:#1FAE6E;--green-400:#3FC98A;--green-050:#EAFBF2;
   --amber-500:#E8871E;
-
-  --paper:#F6F4EC;
-  --surface:#FFFFFF;
-  --ink-900:#10151F;
-  --ink-600:#586173;
-  --hair:#E7E2D3;
-
+  --paper:#F6F4EC;--surface:#FFFFFF;--field:#FFFFFF;
+  --ink-900:#10151F;--ink-600:#586173;--hair:#E7E2D3;
   --line:rgba(255,255,255,.14);
-
-  --radius:16px;
-  --app:480px;
-
-  --f-display:'Space Grotesk',sans-serif;
-  --f-body:'Inter',sans-serif;
-  --f-mono:'IBM Plex Mono',monospace;
-
-  --shadow:0 24px 50px -18px rgba(0,0,0,.5);
-
+  --danger:#DC2626;
+  --radius:16px;--app:480px;
+  --f-display:'Space Grotesk',sans-serif;--f-body:'Inter',sans-serif;--f-mono:'IBM Plex Mono',monospace;
   --ease:cubic-bezier(.22,.61,.36,1);
 }
-
-[data-theme="dark"] {
-  --paper:#0B1220;
-  --surface:#151E2E;
-  --ink-900:#F1F5F9;
-  --ink-600:#94A3B8;
-  --hair:#2A3648;
+[data-theme="dark"]{
+  --paper:#0B1220;--surface:#151E2E;--field:#0F1828;
+  --ink-900:#F1F5F9;--ink-600:#94A3B8;--hair:#2A3648;
   --green-050:rgba(31,174,110,.14);
-  --shadow:0 24px 50px -18px rgba(0,0,0,.8);
+  --danger:#F87171;
 }
 
-/* ============================================================
-   2. BASE
-   ============================================================ */
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html,body{height:100%}
+html{-webkit-text-size-adjust:100%}
 body{
-  margin:0;
-  font-family:var(--f-body);
-  color:var(--ink-900);
-  background:var(--paper);
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
+  margin:0;font-family:var(--f-body);color:var(--ink-900);
+  background:var(--paper);-webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;min-height:100dvh;overflow-x:hidden;
   transition:background .3s var(--ease),color .3s var(--ease);
 }
-img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-h1,h2,h3{font-family:var(--f-display);margin:0;line-height:1.08;letter-spacing:-.01em}
+h1,h2{font-family:var(--f-display);margin:0;line-height:1.12;letter-spacing:-.01em}
 p{margin:0;line-height:1.6}
 button{font-family:inherit}
-.wrap{max-width:var(--app);margin:0 auto;padding:0 18px}
-:focus-visible{outline:3px solid var(--green-400);outline-offset:2px;border-radius:6px}
+img{display:block;max-width:100%}
+.wrap{width:100%;max-width:var(--app);margin:0 auto;padding:0 20px}
+:focus-visible{outline:3px solid var(--green-400);outline-offset:2px;border-radius:8px}
 
-section{padding:46px 0}
-.section-head{margin-bottom:26px}
-.eyebrow-sm{
-  font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--green-500);display:block;margin-bottom:8px;
-}
-.section-head h2{font-size:23px;margin-bottom:8px}
-.section-head p{color:var(--ink-600);font-size:14px}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
 
-/* ============================================================
-   3. REVELATION AU SCROLL
-   Chaque bloc marque .rv entre depuis le bas quand il devient
-   visible, et se remet en position basse quand il sort de
-   l'ecran : l'animation rejoue a chaque passage.
-   ============================================================ */
-.rv{
-  opacity:0;
-  transform:translateY(26px);
-  transition:opacity .65s var(--ease),transform .65s var(--ease);
-  will-change:opacity,transform;
-}
-.rv.in{opacity:1;transform:none}
-.rv-left{transform:translateX(-24px)}
-.rv-right{transform:translateX(24px)}
-.rv-zoom{transform:scale(.94)}
-.rv-left.in,.rv-right.in,.rv-zoom.in{transform:none}
-
-/* Cascade : les enfants arrivent l'un apres l'autre */
-.stagger>*{
-  opacity:0;transform:translateY(20px);
-  transition:opacity .55s var(--ease),transform .55s var(--ease);
-}
-.stagger.in>*{opacity:1;transform:none}
-.stagger.in>*:nth-child(1){transition-delay:.05s}
-.stagger.in>*:nth-child(2){transition-delay:.13s}
-.stagger.in>*:nth-child(3){transition-delay:.21s}
-.stagger.in>*:nth-child(4){transition-delay:.29s}
-.stagger.in>*:nth-child(5){transition-delay:.37s}
-.stagger.in>*:nth-child(6){transition-delay:.45s}
-
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *{animation-duration:.001ms!important;transition-duration:.001ms!important}
-  .rv,.stagger>*{opacity:1!important;transform:none!important}
-}
-
-/* ============================================================
-   4. EN-TETE
-   ============================================================ */
-header{
-  position:sticky;top:0;z-index:50;
-  background:var(--navy-900);
-  border-bottom:1px solid var(--line);
-  transition:box-shadow .3s var(--ease);
-}
-header.scrolled{box-shadow:0 10px 30px -12px rgba(0,0,0,.55)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:62px;gap:10px}
-
+/* ---------- EN-TETE ---------- */
+header{background:var(--navy-900);border-bottom:1px solid var(--line);flex:none}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px;gap:10px}
 .brand{display:flex;align-items:center;gap:10px;color:#fff;min-width:0}
-.brand-mark{
-  width:36px;height:36px;border-radius:10px;flex:none;
-  background:var(--green-500);object-fit:cover;
-  box-shadow:0 0 0 1px rgba(255,255,255,.12);
-}
-.brand-word{font-family:var(--f-display);font-weight:700;font-size:12.5px;letter-spacing:.03em;line-height:1.25}
-.brand-word span{
-  display:block;font-family:var(--f-body);font-weight:400;font-size:9.5px;
-  color:var(--green-400);letter-spacing:.08em;margin-top:2px;
-}
-
+.brand-mark{width:34px;height:34px;border-radius:10px;flex:none;object-fit:cover;box-shadow:0 0 0 1px rgba(255,255,255,.12)}
+.brand-word{font-family:var(--f-display);font-weight:700;font-size:12px;letter-spacing:.03em;line-height:1.25}
+.brand-word span{display:block;font-family:var(--f-body);font-weight:400;font-size:9.5px;color:var(--green-400);letter-spacing:.08em;margin-top:2px}
 .header-actions{display:flex;align-items:center;gap:7px;flex:none}
 .icon-btn{
-  background:transparent;border:1px solid var(--line);border-radius:9px;
-  color:#fff;width:36px;height:36px;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
+  background:transparent;border:1px solid var(--line);border-radius:9px;color:#fff;
+  width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;
   transition:border-color .25s,background .25s;
 }
 .icon-btn:hover{border-color:var(--green-400);background:rgba(63,201,138,.08)}
 .icon-btn svg{width:17px;height:17px}
-
 .lang-select{
-  background:transparent;border:1px solid var(--line);border-radius:9px;
-  color:#fff;padding:0 6px;height:36px;font-size:11.5px;font-weight:600;
-  cursor:pointer;font-family:var(--f-mono);letter-spacing:.04em;
-  transition:border-color .25s;
+  background:transparent;border:1px solid var(--line);border-radius:9px;color:#fff;
+  padding:0 6px;height:36px;font-size:11.5px;font-weight:600;cursor:pointer;
+  font-family:var(--f-mono);letter-spacing:.04em;transition:border-color .25s;
 }
-.lang-select:hover{border-color:var(--green-400)}
 .lang-select option{background:var(--navy-900);color:#fff}
 
-.burger{
-  background:transparent;border:1px solid var(--line);border-radius:9px;
-  width:36px;height:36px;cursor:pointer;position:relative;flex:none;
-  transition:border-color .25s;
-}
-.burger:hover{border-color:var(--green-400)}
-.burger i{
-  position:absolute;left:9px;width:18px;height:2px;background:#fff;border-radius:2px;
-  transition:transform .3s var(--ease),opacity .2s;
-}
-.burger i:nth-child(1){top:12px}
-.burger i:nth-child(2){top:17px}
-.burger i:nth-child(3){top:22px}
-.burger[aria-expanded="true"] i:nth-child(1){transform:translateY(5px) rotate(45deg)}
-.burger[aria-expanded="true"] i:nth-child(2){opacity:0}
-.burger[aria-expanded="true"] i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+/* ---------- CORPS ---------- */
+main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:26px 0 34px}
 
-/* ============================================================
-   5. PANNEAU LATERAL
-   ============================================================ */
-.backdrop{
-  position:fixed;inset:0;background:rgba(7,22,39,.6);
-  backdrop-filter:blur(2px);
-  opacity:0;pointer-events:none;transition:opacity .25s;z-index:60;
+.intro{margin-bottom:22px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:7px;font-family:var(--f-mono);
+  font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--green-500);
+  margin-bottom:12px;
 }
-.backdrop.open{opacity:1;pointer-events:auto}
+.eyebrow i{width:5px;height:5px;border-radius:50%;background:var(--green-500);display:block}
+.intro h1{font-size:26px;margin-bottom:8px}
+.intro p{color:var(--ink-600);font-size:14px}
 
-.sidebar{
-  position:fixed;top:0;right:0;height:100%;width:84%;max-width:330px;
-  background:var(--navy-900);z-index:70;
-  transform:translateX(100%);transition:transform .32s var(--ease);
-  display:flex;flex-direction:column;
-  padding:16px 20px calc(22px + env(safe-area-inset-bottom));
-  overflow-y:auto;
+.card{
+  background:var(--surface);border:1px solid var(--hair);border-radius:var(--radius);
+  padding:22px 20px;
 }
-.sidebar.open{transform:none}
-.sidebar-nav{display:flex;flex-direction:column;margin:18px 0}
-.sidebar-nav a{
-  color:#C9D3E0;padding:14px 4px;font-size:15px;
-  border-bottom:1px solid var(--line);
-  display:flex;align-items:center;gap:11px;
-  transition:color .22s,padding-left .22s;
-}
-.sidebar-nav a:hover{color:#fff;padding-left:8px}
-.sidebar-nav svg{width:17px;height:17px;color:var(--green-400);flex:none}
 
-#sidebarAuth{
-  display:flex;flex-direction:column;gap:9px;margin-top:auto;
-  padding-top:16px;border-top:1px solid var(--line);
+/* ---------- CHAMPS ---------- */
+.field{margin-bottom:16px}
+.field label{
+  display:block;font-size:12.5px;font-weight:600;color:var(--ink-600);
+  margin-bottom:7px;letter-spacing:.01em;
 }
-.sidebar-user{display:flex;align-items:center;gap:11px;color:#fff;font-size:13px;margin-bottom:4px}
-.avatar{
-  width:38px;height:38px;border-radius:50%;flex:none;object-fit:cover;
-  background:var(--green-500);color:var(--navy-950);
+.control{position:relative}
+/* 16px minimum : en dessous, iOS zoome sur le champ au focus */
+.input{
+  width:100%;height:52px;padding:0 15px;font-size:16px;font-family:inherit;
+  color:var(--ink-900);background:var(--field);
+  border:1px solid var(--hair);border-radius:12px;
+  transition:border-color .2s,box-shadow .2s;
+}
+.input::placeholder{color:var(--ink-600);opacity:.65}
+.input:focus{outline:none;border-color:var(--green-500);box-shadow:0 0 0 3px var(--green-050)}
+.input.invalid{border-color:var(--danger)}
+.has-toggle .input{padding-right:52px}
+
+.toggle-pw{
+  position:absolute;right:6px;top:6px;width:40px;height:40px;border:0;border-radius:9px;
+  background:transparent;color:var(--ink-600);cursor:pointer;
   display:flex;align-items:center;justify-content:center;
-  font-weight:700;font-family:var(--f-display);
 }
-.sidebar-user small{color:#8FA0B8;display:block;margin-top:2px}
+.toggle-pw:hover{color:var(--green-500)}
+.toggle-pw svg{width:19px;height:19px}
 
-/* ============================================================
-   6. BOUTONS
-   ============================================================ */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;
-  border:1px solid transparent;cursor:pointer;white-space:nowrap;
-  font-family:inherit;transition:transform .22s var(--ease),background .22s,border-color .22s;
+.field-error{
+  display:none;color:var(--danger);font-size:12px;margin-top:6px;
 }
-.btn:active{transform:scale(.97)}
+.field-error.show{display:block}
+
+.row-between{display:flex;justify-content:flex-end;margin:-6px 0 18px}
+.link{font-size:12.5px;font-weight:600;color:var(--green-500)}
+.link:hover{text-decoration:underline}
+
+/* ---------- BOUTONS ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;width:100%;
+  height:52px;padding:0 20px;border-radius:999px;font-weight:600;font-size:15px;
+  border:1px solid transparent;cursor:pointer;
+  transition:transform .2s var(--ease),background .2s,border-color .2s,opacity .2s;
+}
+.btn:active{transform:scale(.98)}
+.btn[disabled]{opacity:.6;pointer-events:none}
 .btn-primary{background:var(--green-500);color:var(--navy-950)}
 .btn-primary:hover{background:var(--green-400)}
-.btn-ghost{color:#fff;border-color:var(--line)}
-.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
-.btn-outline{color:var(--ink-900);border-color:var(--hair);background:transparent}
+.btn-outline{background:transparent;color:var(--ink-900);border-color:var(--hair)}
 .btn-outline:hover{border-color:var(--green-500);color:var(--green-500)}
-.btn-block{width:100%}
 
-/* ============================================================
-   7. HERO
-   ============================================================ */
-.hero{
-  background:
-    radial-gradient(620px 340px at 12% -12%,var(--navy-700),transparent),
-    linear-gradient(180deg,var(--navy-900),var(--navy-950));
-  color:#fff;padding:42px 0 48px;position:relative;overflow:hidden;
+.spinner{
+  width:17px;height:17px;border:2px solid rgba(7,22,39,.25);
+  border-top-color:var(--navy-950);border-radius:50%;
+  animation:spin .7s linear infinite;display:none;
 }
-/* Trame de conteneurs en fond, tres discrete */
-.hero::after{
-  content:'';position:absolute;inset:0;pointer-events:none;opacity:.05;
-  background-image:linear-gradient(var(--green-400) 1px,transparent 1px),
-                   linear-gradient(90deg,var(--green-400) 1px,transparent 1px);
-  background-size:46px 46px;
-  mask-image:radial-gradient(400px 300px at 80% 20%,#000,transparent);
-  -webkit-mask-image:radial-gradient(400px 300px at 80% 20%,#000,transparent);
-}
-.hero .wrap{position:relative;z-index:1}
+.btn.loading .spinner{display:block}
+.btn.loading .btn-label{opacity:.7}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-.eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:var(--f-mono);font-size:11px;letter-spacing:.09em;
-  color:var(--green-400);text-transform:uppercase;
-  border:1px solid rgba(63,201,138,.35);padding:6px 12px;border-radius:999px;
-  margin-bottom:18px;
-}
-.eyebrow .pulse{
-  width:6px;height:6px;border-radius:50%;background:var(--green-400);
-  animation:pulse 2.4s ease-in-out infinite;
-}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
-
-.hero h1{font-size:31px;margin-bottom:14px}
-.hero h1 em{font-style:normal;color:var(--green-400)}
-.hero .lead{font-size:15px;color:#C9D3E0;margin-bottom:24px}
-.hero-ctas{display:flex;flex-direction:column;gap:10px;margin-bottom:34px}
-
-/* ---- Signature : le bordereau de suivi ---- */
-.waybill{
-  background:var(--surface);color:var(--ink-900);border-radius:var(--radius);
-  padding:20px;position:relative;box-shadow:var(--shadow);
-  transform:rotate(-1.2deg);
-  border:1px solid var(--hair);
-}
-.waybill::before{
-  content:attr(data-preview);
-  position:absolute;top:14px;right:-34px;
-  background:var(--amber-500);color:var(--navy-950);
-  font-family:var(--f-mono);font-size:9.5px;font-weight:600;letter-spacing:.08em;
-  padding:3px 36px;transform:rotate(35deg);
-}
-.waybill-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-.wb-label{
-  font-size:10.5px;color:var(--ink-600);text-transform:uppercase;
-  letter-spacing:.08em;margin-bottom:4px;
-}
-.wb-num{font-family:var(--f-mono);font-size:16px;font-weight:600}
-.chip{
-  font-family:var(--f-mono);font-size:10.5px;font-weight:600;letter-spacing:.04em;
-  background:var(--green-050);color:var(--green-500);
-  padding:5px 10px;border-radius:999px;white-space:nowrap;
+/* ---------- SEPARATEUR ---------- */
+.sep{display:flex;align-items:center;gap:12px;margin:20px 0}
+.sep::before,.sep::after{content:'';flex:1;height:1px;background:var(--hair)}
+.sep span{
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-600);
 }
 
-.wb-route{display:flex;align-items:center;gap:10px;margin:20px 0 6px}
-.dot{width:9px;height:9px;border-radius:50%;background:var(--navy-800);flex:none}
-.dot.done{background:var(--green-500);box-shadow:0 0 0 4px var(--green-050)}
-.rail{flex:1;height:2px;background:var(--hair);border-radius:2px;position:relative}
-.rail i{
-  position:absolute;inset:0 auto 0 0;width:0;background:var(--green-500);
-  border-radius:2px;transition:width 1.4s var(--ease);
+/* ---------- GOOGLE ---------- */
+#googleHost{display:flex;justify-content:center;min-height:44px}
+#googleFallback{display:none}
+.btn-google{
+  background:var(--field);color:var(--ink-900);border-color:var(--hair);
 }
-.rail .ship{
-  position:absolute;top:-9px;left:0;color:var(--green-500);
-  transition:left 1.4s var(--ease);
-}
-.rail .ship svg{width:18px;height:18px;display:block;margin-left:-9px}
-.wb-codes{
-  display:flex;justify-content:space-between;
-  font-family:var(--f-mono);font-size:11px;color:var(--ink-600);
-}
-.wb-cut{border-top:2px dashed var(--hair);margin:16px -20px 14px}
-.wb-meta{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink-600)}
-.wb-meta b{color:var(--ink-900);font-family:var(--f-mono);font-weight:600;display:block;margin-top:2px}
+.btn-google:hover{border-color:var(--ink-600)}
+.btn-google svg{width:19px;height:19px}
 
-/* ============================================================
-   8. BANDEAU DEFILANT
-   ============================================================ */
-.marquee{
-  background:var(--navy-950);border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);overflow:hidden;padding:11px 0;
+/* ---------- BAS DE PAGE ---------- */
+.switch{
+  text-align:center;margin-top:22px;font-size:13.5px;color:var(--ink-600);
 }
-.marquee-track{display:flex;width:max-content;animation:slide 22s linear infinite}
-.marquee:hover .marquee-track{animation-play-state:paused}
-.marquee-group{display:flex;gap:34px;padding-right:34px;flex:none}
-.marquee-track span{
-  font-family:var(--f-mono);font-size:11.5px;color:var(--green-400);
-  white-space:nowrap;letter-spacing:.03em;
-  display:inline-flex;align-items:center;gap:7px;
-}
-.marquee-track svg{width:13px;height:13px;flex:none}
-/* De la gauche vers la droite */
-@keyframes slide{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.switch a{font-weight:600;color:var(--green-500)}
+.switch a:hover{text-decoration:underline}
 
-/* ============================================================
-   9. CHIFFRES
-   ============================================================ */
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--hair);
-  border:1px solid var(--hair);border-radius:var(--radius);overflow:hidden}
-.stat{background:var(--paper);padding:20px 16px;text-align:center}
-.stat b{
-  display:block;font-family:var(--f-display);font-size:27px;
-  color:var(--green-500);line-height:1;margin-bottom:6px;
+.legal{
+  text-align:center;font-size:11.5px;color:var(--ink-600);
+  margin-top:26px;line-height:1.7;
 }
-.stat span{font-size:11.5px;color:var(--ink-600);letter-spacing:.02em}
+.legal a{color:var(--ink-600);text-decoration:underline}
 
-/* ============================================================
-   10. SERVICES
-   ============================================================ */
-.services{display:flex;flex-direction:column;gap:12px}
-.service{
-  border-radius:var(--radius);padding:20px;color:#fff;position:relative;overflow:hidden;
-  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+/* ---------- ALERTE ---------- */
+.alert{
+  display:none;gap:10px;align-items:flex-start;
+  padding:13px 15px;border-radius:12px;font-size:13px;line-height:1.55;
+  margin-bottom:18px;border:1px solid;
 }
-.service:hover{transform:translateY(-4px);box-shadow:0 16px 34px -14px rgba(0,0,0,.45)}
-.service::after{
-  content:'';position:absolute;right:-40px;bottom:-40px;
-  width:130px;height:130px;border-radius:50%;
-  background:rgba(255,255,255,.07);
-}
-.service h3{font-size:17px;margin-bottom:8px;position:relative}
-.service p{font-size:13px;color:rgba(255,255,255,.84);margin-bottom:12px;position:relative}
-.service a{font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:6px;position:relative}
-.service a svg{width:14px;height:14px;transition:transform .25s var(--ease)}
-.service a:hover svg{transform:translateX(4px)}
-.tag{
-  font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
-  background:rgba(255,255,255,.18);padding:4px 9px;border-radius:999px;
-  display:inline-block;margin-bottom:10px;position:relative;
-}
-.c-mer{background:linear-gradient(135deg,#123A63,#0A2647)}
-.c-air{background:linear-gradient(135deg,#C2540F,#8C3B0A)}
-.c-dou{background:linear-gradient(135deg,#8A6D0E,#5E4A08)}
-.c-sto{background:linear-gradient(135deg,#166534,#0F4A26)}
-.c-liv{background:linear-gradient(135deg,#0F766E,#0A5750)}
+.alert.show{display:flex}
+.alert svg{width:18px;height:18px;flex:none;margin-top:1px}
+.alert-error{background:rgba(220,38,38,.08);border-color:rgba(220,38,38,.3);color:var(--danger)}
+.alert-info{background:var(--green-050);border-color:rgba(31,174,110,.35);color:var(--green-500)}
 
-/* ============================================================
-   11. COMPARATIF
-   ============================================================ */
-.compare{
-  background:var(--surface);border-radius:var(--radius);
-  border:1px solid var(--hair);overflow:hidden;
-}
-.cmp-col{padding:22px 20px}
-.cmp-col+.cmp-col{border-top:1px solid var(--hair)}
-.cmp-col h3{font-size:16px;margin-bottom:12px;display:flex;align-items:center;gap:9px}
-.cmp-col h3 svg{width:19px;height:19px;flex:none}
-.cmp-row{
-  display:flex;justify-content:space-between;gap:14px;padding:10px 0;
-  border-bottom:1px dashed var(--hair);font-size:13px;
-}
-.cmp-row:last-child{border-bottom:none}
-.cmp-row span{color:var(--ink-600)}
-.cmp-row b{font-family:var(--f-mono);font-weight:600;text-align:right}
-
-/* ============================================================
-   12. ETAPES — la ligne se remplit au fil du scroll
-   ============================================================ */
-.steps{position:relative;padding-left:6px}
-.steps::before{
-  content:'';position:absolute;left:22px;top:26px;bottom:26px;
-  width:2px;background:var(--hair);
-}
-.steps-fill{
-  position:absolute;left:22px;top:26px;width:2px;height:0;
-  background:linear-gradient(180deg,var(--green-500),var(--green-400));
-  transition:height .15s linear;
-}
-.step{display:flex;gap:15px;padding:15px 0;position:relative}
-.step-num{
-  font-family:var(--f-mono);font-weight:600;font-size:13px;
-  width:33px;height:33px;border-radius:50%;flex:none;z-index:1;
-  display:flex;align-items:center;justify-content:center;
-  border:1px solid var(--hair);background:var(--paper);color:var(--ink-600);
-  transition:border-color .35s,color .35s,background .35s;
-}
-.step.reached .step-num{border-color:var(--green-500);color:var(--green-500);background:var(--green-050)}
-.step h3{font-size:14.5px;margin-bottom:4px}
-.step p{font-size:13px;color:var(--ink-600)}
-
-/* ============================================================
-   13. TEMOIGNAGES
-   ============================================================ */
-.band{
-  background:var(--navy-900);color:#fff;border-radius:var(--radius);
-  padding:30px 22px;text-align:center;
-}
-.band h2{font-size:20px;margin-bottom:10px}
-.band p{color:#C9D3E0;font-size:13.5px;margin-bottom:18px}
-
-.quote{
-  background:var(--surface);border:1px solid var(--hair);
-  border-radius:var(--radius);padding:18px;margin-bottom:12px;
-}
-.quote p{font-size:13.5px;margin-bottom:12px}
-.quote footer{display:flex;align-items:center;gap:10px}
-.quote .avatar{width:32px;height:32px;font-size:13px}
-.quote b{font-size:13px;display:block}
-.quote small{font-size:11.5px;color:var(--ink-600)}
-
-/* ============================================================
-   14. FAQ
-   ============================================================ */
-.faq-item{border-bottom:1px solid var(--hair)}
-.faq-q{
-  width:100%;background:none;border:0;cursor:pointer;text-align:left;
-  padding:16px 0;display:flex;align-items:center;justify-content:space-between;gap:14px;
-  font-family:var(--f-display);font-weight:600;font-size:14.5px;color:var(--ink-900);
-}
-.faq-q svg{width:18px;height:18px;flex:none;color:var(--green-500);transition:transform .3s var(--ease)}
-.faq-item.open .faq-q svg{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
-.faq-a p{font-size:13px;color:var(--ink-600);padding-bottom:16px}
-
-/* ============================================================
-   15. CONTACT
-   ============================================================ */
-.contact-band{
-  background:linear-gradient(135deg,var(--green-500),#128A56);
-  border-radius:var(--radius);padding:28px 22px;color:var(--navy-950);
-}
-.contact-band h2{font-size:20px;margin-bottom:8px}
-.contact-band p{font-size:13.5px;margin-bottom:18px}
-.contact-methods{display:flex;flex-direction:column;gap:10px}
-.contact-methods .btn-dark{background:var(--navy-950);color:#fff}
-.contact-methods .btn-line{border-color:rgba(10,25,46,.35);color:var(--navy-950)}
-.contact-methods .btn-line:hover{background:rgba(10,25,46,.08)}
-
-/* ============================================================
-   16. PIED DE PAGE
-   ============================================================ */
-footer.site{background:var(--navy-950);color:#8FA0B8;padding:40px 0 calc(24px + env(safe-area-inset-bottom));margin-top:16px}
-.foot-grid{display:flex;flex-direction:column;gap:26px;margin-bottom:26px}
-.foot-brand p{font-size:12.5px;margin-top:12px;color:#7386A0}
-footer.site h4{
-  color:#fff;font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;
-  margin:0 0 12px;font-family:var(--f-body);font-weight:600;
-}
-footer.site ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
-footer.site li{font-size:13px;color:#B9C3D2}
-footer.site a{font-size:13px;color:#B9C3D2;transition:color .22s}
-footer.site a:hover{color:#fff}
-.foot-bottom{
-  border-top:1px solid var(--line);padding-top:18px;
-  font-size:11.5px;color:#657795;display:flex;flex-direction:column;gap:6px;
-}
-
-/* ============================================================
-   17. NOTIFICATION
-   ============================================================ */
+/* ---------- NOTIFICATION ---------- */
 .toast{
-  position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));
+  position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));
   transform:translateX(-50%) translateY(120px);
   background:var(--surface);color:var(--ink-900);
   border:1px solid var(--hair);border-left-width:4px;
@@ -550,612 +228,220 @@ footer.site a:hover{color:#fff}
 }
 .toast.show{opacity:1;visibility:visible;transform:translateX(-50%)}
 .toast.success{border-left-color:var(--green-500)}
-.toast.error{border-left-color:#EF4444}
+.toast.error{border-left-color:var(--danger)}
 
-/* ============================================================
-   18. ADAPTATIONS
-   ============================================================ */
-@media (max-width:380px){
-  .hero h1{font-size:27px}
-  .brand-word{font-size:11.5px}
-}
-@media (min-width:600px){
-  .services{display:grid;grid-template-columns:1fr 1fr}
-  .stats{grid-template-columns:repeat(4,1fr)}
-}
+/* ---------- ENTREE ---------- */
+.enter{opacity:0;transform:translateY(18px);animation:enter .6s var(--ease) forwards}
+.enter-1{animation-delay:.05s}
+.enter-2{animation-delay:.14s}
+.enter-3{animation-delay:.23s}
+@keyframes enter{to{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<!-- ============================ EN-TETE ============================ -->
-<header id="header">
+<header>
   <div class="wrap nav">
     <a class="brand" href="/">
-      <img class="brand-mark" src="https://i.ibb.co/v4M4QCH2/Lord-Kerm.jpg" alt="TLC International Cargo" width="36" height="36">
-      <span class="brand-word">
-        TLC INTERNATIONAL CARGO
+      <img class="brand-mark" src="https://i.ibb.co/v4M4QCH2/Lord-Kerm.jpg" alt="TLC International Cargo" width="34" height="34">
+      <span class="brand-word">TLC INTERNATIONAL CARGO
         <span data-i18n="brand.tagline">Votre cargo, notre priorite</span>
       </span>
     </a>
-
     <div class="header-actions">
       <button class="icon-btn" id="themeToggle" aria-label="Changer de theme">
         <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></svg>
       </button>
-
       <select class="lang-select" id="langSelect" aria-label="Changer de langue">
         <option value="fr">FR</option>
         <option value="en">EN</option>
       </select>
-
-      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="sidebar">
-        <i></i><i></i><i></i>
-      </button>
     </div>
   </div>
 </header>
 
-<!-- ============================ PANNEAU ============================ -->
-<div class="backdrop" id="backdrop"></div>
-
-<aside class="sidebar" id="sidebar" aria-hidden="true">
-  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
-    <a class="brand" href="/">
-      <img class="brand-mark" src="https://i.ibb.co/v4M4QCH2/Lord-Kerm.jpg" alt="" width="36" height="36">
-      <span class="brand-word">
-        TLC INTERNATIONAL
-        <span data-i18n="brand.tagline">Votre cargo, notre priorite</span>
-      </span>
-    </a>
-    <button class="icon-btn" id="sidebarClose" aria-label="Fermer le menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
-    </button>
-  </div>
-
-  <nav class="sidebar-nav">
-    <a href="/">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>
-      <span data-i18n="nav.home">Accueil</span>
-    </a>
-    <a href="/services">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="M3 8v8l9 5 9-5V8"/></svg>
-      <span data-i18n="nav.services">Services</span>
-    </a>
-    <a href="/fonctionnement">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h10M4 12h16M4 18h7"/><circle cx="18" cy="6" r="2"/><circle cx="14" cy="18" r="2"/></svg>
-      <span data-i18n="nav.fonctionnement">Fonctionnement</span>
-    </a>
-    <a href="/suivi">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <span data-i18n="nav.suivi">Suivre un colis</span>
-    </a>
-    <a href="/a-propos">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
-      <span data-i18n="nav.about">A propos</span>
-    </a>
-    <a href="/faq">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.4 2.3c-.6.3-.9.8-.9 1.4v.3M12 17h.01"/></svg>
-      <span data-i18n="nav.faq">Questions frequentes</span>
-    </a>
-    <a href="/contact">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6.5 12 13l9-6.5"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
-      <span data-i18n="nav.contact">Contact</span>
-    </a>
-  </nav>
-
-  <div id="sidebarAuth"></div>
-</aside>
-
-<!-- ============================ HERO ============================ -->
-<section class="hero">
+<main>
   <div class="wrap">
-    <span class="eyebrow"><i class="pulse"></i><span data-i18n="hero.eyebrow">Yiwu, Chine → Douala, Cameroun</span></span>
 
-    <h1 data-i18n-html="hero.title">Votre cargo,<br><em>notre priorite.</em></h1>
+    <div class="intro enter enter-1">
+      <span class="eyebrow"><i></i><span data-i18n="login.eyebrow">Espace client</span></span>
+      <h1 data-i18n="login.title">Bon retour parmi nous</h1>
+      <p data-i18n="login.subtitle">Connectez-vous pour suivre vos colis, du depart de Yiwu jusqu'a votre porte.</p>
+    </div>
 
-    <p class="lead" data-i18n="hero.lead">
-      Importation, transit international, stockage temporaire et livraison de vos colis, pris en charge de bout en bout, avec un suivi clair a chaque etape.
+    <div class="card enter enter-2">
+
+      <div class="alert alert-error" id="alertError">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/>
+        </svg>
+        <span id="alertErrorText"></span>
+      </div>
+
+      <div class="alert alert-info" id="alertInfo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>
+        </svg>
+        <span id="alertInfoText"></span>
+      </div>
+
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <label for="email" data-i18n="login.email">Adresse email</label>
+          <div class="control">
+            <input class="input" type="email" id="email" name="email"
+                   autocomplete="email" inputmode="email" required
+                   placeholder="vous@exemple.com" data-i18n-ph="login.email_ph">
+          </div>
+          <div class="field-error" id="emailError"></div>
+        </div>
+
+        <div class="field has-toggle">
+          <label for="password" data-i18n="login.password">Mot de passe</label>
+          <div class="control">
+            <input class="input" type="password" id="password" name="password"
+                   autocomplete="current-password" required
+                   placeholder="••••••••" >
+            <button type="button" class="toggle-pw" id="togglePw" aria-label="Afficher le mot de passe">
+              <svg id="pwIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"></svg>
+            </button>
+          </div>
+          <div class="field-error" id="passwordError"></div>
+        </div>
+
+        <div class="row-between">
+          <a class="link" href="/forgot-password" data-i18n="login.forgot">Mot de passe oublie ?</a>
+        </div>
+
+        <button class="btn btn-primary" type="submit" id="submitBtn">
+          <span class="spinner"></span>
+          <span class="btn-label" data-i18n="login.submit">Se connecter</span>
+        </button>
+      </form>
+
+      <div class="sep"><span data-i18n="login.or">ou</span></div>
+
+      <!-- Bouton officiel Google, rendu par le script Google Identity -->
+      <div id="googleHost"></div>
+
+      <!-- Affiche seulement si le script Google ne charge pas -->
+      <button class="btn btn-outline btn-google" id="googleFallback" type="button">
+        <svg viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.4-.18-2.05H12v3.88h5.38a4.6 4.6 0 0 1-2 3.02v2.5h3.23c1.89-1.74 2.98-4.3 2.98-7.35Z"/>
+          <path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.61-2.42l-3.23-2.5c-.9.6-2.04.96-3.38.96-2.6 0-4.8-1.76-5.59-4.12H3.07v2.59A10 10 0 0 0 12 22Z"/>
+          <path fill="#FBBC05" d="M6.41 13.92a6 6 0 0 1 0-3.83V7.5H3.07a10 10 0 0 0 0 9l3.34-2.58Z"/>
+          <path fill="#EA4335" d="M12 5.98c1.47 0 2.79.5 3.83 1.5l2.86-2.86C16.95 2.99 14.7 2 12 2a10 10 0 0 0-8.93 5.5l3.34 2.59C7.2 7.73 9.4 5.98 12 5.98Z"/>
+        </svg>
+        <span class="btn-label" data-i18n="login.google">Continuer avec Google</span>
+      </button>
+
+    </div>
+
+    <p class="switch enter enter-3">
+      <span data-i18n="login.no_account">Pas encore de compte ?</span>
+      <a href="/signup" data-i18n="login.signup">Creer un compte</a>
     </p>
 
-    <div class="hero-ctas">
-      <a href="/suivi" class="btn btn-primary" data-i18n="hero.cta_track">Suivre mon colis</a>
-      <a href="https://wa.me/237698178294" class="btn btn-ghost" target="_blank" rel="noopener" data-i18n="hero.cta_whatsapp">Discuter sur WhatsApp</a>
-    </div>
+    <p class="legal enter enter-3">
+      <a href="/" data-i18n="login.back">Retour a l'accueil</a>
+    </p>
 
-    <!-- Signature de la page : le bordereau -->
-    <div class="waybill rv rv-zoom" id="waybill" data-preview="APERCU" role="img" aria-label="Exemple de suivi de colis">
-      <div class="waybill-top">
-        <div>
-          <div class="wb-label" data-i18n="waybill.number_label">Numero de colis</div>
-          <div class="wb-num">TLC-2026-004821</div>
-        </div>
-        <span class="chip" data-i18n="waybill.status">EN TRANSPORT</span>
-      </div>
-
-      <div class="wb-route">
-        <span class="dot done"></span>
-        <span class="rail" id="rail">
-          <i></i>
-          <span class="ship">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M3 18l1.5-6h15L21 18"/><path d="M6 12V6h8l3 6"/>
-              <path d="M2 21c1 .8 2.2 1 3.5 1s2.5-.4 3.5-1c1 .6 2.2 1 3.5 1s2.5-.4 3.5-1c1 .6 2.2 1 3.5 1"/>
-            </svg>
-          </span>
-        </span>
-        <span class="dot"></span>
-      </div>
-      <div class="wb-codes"><span>YIW</span><span>DLA</span></div>
-
-      <div class="wb-cut"></div>
-
-      <div class="wb-meta">
-        <span data-i18n-html="waybill.eta_label">Arrivee estimee<b>12 aout 2026</b></span>
-        <span data-i18n-html="waybill.freight_label">Fret<b>Maritime</b></span>
-      </div>
-    </div>
   </div>
-</section>
+</main>
 
-<!-- ============================ BANDEAU ============================ -->
-<div class="marquee" aria-hidden="true"><div class="marquee-track" id="marqueeTrack"></div></div>
-
-<!-- ============================ CHIFFRES ============================ -->
-<section>
-  <div class="wrap">
-    <div class="stats stagger rv" id="stats">
-      <div class="stat"><b data-count="1200" data-suffix="+">0</b><span data-i18n="stats.parcels">Colis achemines</span></div>
-      <div class="stat"><b data-count="380" data-suffix="+">0</b><span data-i18n="stats.clients">Clients accompagnes</span></div>
-      <div class="stat"><b data-count="7" data-suffix=" ans">0</b><span data-i18n="stats.years">Presence a Yiwu</span></div>
-      <div class="stat"><b data-count="98" data-suffix="%">0</b><span data-i18n="stats.rate">Colis remis a temps</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ SERVICES ============================ -->
-<section id="services" style="padding-top:0">
-  <div class="wrap">
-    <div class="section-head rv">
-      <span class="eyebrow-sm" data-i18n="services.eyebrow">Nos services</span>
-      <h2 data-i18n="services.title">Chaque etape, entre de bonnes mains</h2>
-      <p data-i18n="services.subtitle">De l'entrepot a Yiwu jusqu'a votre porte a Douala, cinq metiers, un seul interlocuteur.</p>
-    </div>
-
-    <div class="services stagger rv">
-      <article class="service c-mer">
-        <span class="tag" data-i18n="services.maritime.tag">Fret maritime</span>
-        <h3 data-i18n="services.maritime.title">Transit international</h3>
-        <p data-i18n="services.maritime.desc">L'option economique pour les gros volumes, groupage LCL depuis Yiwu.</p>
-        <a href="/services"><span data-i18n="services.more">En savoir plus</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h14M13 6l6 6-6 6"/></svg></a>
-      </article>
-
-      <article class="service c-air">
-        <span class="tag" data-i18n="services.aerien.tag">Fret aerien</span>
-        <h3 data-i18n="services.aerien.title">Importation express</h3>
-        <p data-i18n="services.aerien.desc">Pour vos marchandises urgentes ou a forte valeur, livrees en quelques jours.</p>
-        <a href="/services"><span data-i18n="services.more">En savoir plus</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h14M13 6l6 6-6 6"/></svg></a>
-      </article>
-
-      <article class="service c-dou">
-        <span class="tag" data-i18n="services.douane.tag">Dedouanement</span>
-        <h3 data-i18n="services.douane.title">Accompagnement douane</h3>
-        <p data-i18n="services.douane.desc">Formalites, documents et frais geres pour vous, sans mauvaise surprise.</p>
-        <a href="/services"><span data-i18n="services.more">En savoir plus</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h14M13 6l6 6-6 6"/></svg></a>
-      </article>
-
-      <article class="service c-sto">
-        <span class="tag" data-i18n="services.stockage.tag">Entrepot</span>
-        <h3 data-i18n="services.stockage.title">Stockage temporaire</h3>
-        <p data-i18n="services.stockage.desc">Vos colis en securite dans notre depot, jusqu'a votre recuperation.</p>
-        <a href="/services"><span data-i18n="services.more">En savoir plus</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h14M13 6l6 6-6 6"/></svg></a>
-      </article>
-
-      <article class="service c-liv">
-        <span class="tag" data-i18n="services.livraison.tag">Dernier kilometre</span>
-        <h3 data-i18n="services.livraison.title">Livraison</h3>
-        <p data-i18n="services.livraison.desc">Remise en main propre ou point de retrait, a votre convenance.</p>
-        <a href="/services"><span data-i18n="services.more">En savoir plus</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h14M13 6l6 6-6 6"/></svg></a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ COMPARATIF ============================ -->
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="section-head rv">
-      <span class="eyebrow-sm" data-i18n="compare.eyebrow">Bateau ou avion</span>
-      <h2 data-i18n="compare.title">La question qu'on nous pose le plus</h2>
-      <p data-i18n="compare.subtitle">La reponse depend de votre budget, du volume et de l'urgence. Un apercu :</p>
-    </div>
-
-    <div class="compare">
-      <div class="cmp-col rv rv-left">
-        <h3>
-          <svg viewBox="0 0 24 24" fill="none" stroke="#17406B" stroke-width="1.8"><path d="M3 18l1.5-6h15L21 18"/><path d="M6 12V6h8l3 6"/><path d="M2 21c1 .8 2.2 1 3.5 1s2.5-.4 3.5-1c1 .6 2.2 1 3.5 1s2.5-.4 3.5-1c1 .6 2.2 1 3.5 1"/></svg>
-          <span data-i18n="compare.sea.title">Fret maritime</span>
-        </h3>
-        <div class="cmp-row"><span data-i18n="compare.delay">Delai</span><b data-i18n="compare.sea.delay">25 a 40 jours</b></div>
-        <div class="cmp-row"><span data-i18n="compare.price">Prix</span><b data-i18n="compare.sea.price">des 850 USD/CBM</b></div>
-        <div class="cmp-row"><span data-i18n="compare.ideal">Ideal pour</span><b data-i18n="compare.sea.ideal">gros volumes</b></div>
-      </div>
-
-      <div class="cmp-col rv rv-right">
-        <h3>
-          <svg viewBox="0 0 24 24" fill="none" stroke="#C2540F" stroke-width="2"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4Z"/></svg>
-          <span data-i18n="compare.air.title">Fret aerien</span>
-        </h3>
-        <div class="cmp-row"><span data-i18n="compare.delay">Delai</span><b data-i18n="compare.air.delay">4 a 7 jours</b></div>
-        <div class="cmp-row"><span data-i18n="compare.price">Prix</span><b data-i18n="compare.air.price">5 a 8x le maritime</b></div>
-        <div class="cmp-row"><span data-i18n="compare.ideal">Ideal pour</span><b data-i18n="compare.air.ideal">colis urgents</b></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ ETAPES ============================ -->
-<section id="fonctionnement" style="padding-top:0">
-  <div class="wrap">
-    <div class="section-head rv">
-      <span class="eyebrow-sm" data-i18n="steps.eyebrow">Fonctionnement</span>
-      <h2 data-i18n="steps.title">Le parcours de votre colis</h2>
-      <p data-i18n="steps.subtitle">Six etapes, du premier contact jusqu'a la remise entre vos mains.</p>
-    </div>
-
-    <div class="steps" id="steps">
-      <span class="steps-fill" id="stepsFill"></span>
-
-      <div class="step rv"><span class="step-num">1</span><div>
-        <h3 data-i18n="steps.s1.title">Vous nous contactez</h3>
-        <p data-i18n="steps.s1.desc">Par WhatsApp ou depuis le site, avec le detail de votre commande.</p></div></div>
-
-      <div class="step rv"><span class="step-num">2</span><div>
-        <h3 data-i18n="steps.s2.title">Prise en charge a Yiwu</h3>
-        <p data-i18n="steps.s2.desc">Votre marchandise est receptionnee et verifiee dans notre entrepot.</p></div></div>
-
-      <div class="step rv"><span class="step-num">3</span><div>
-        <h3 data-i18n="steps.s3.title">Transport organise</h3>
-        <p data-i18n="steps.s3.desc">Maritime ou aerien selon votre besoin, dedouanement inclus.</p></div></div>
-
-      <div class="step rv"><span class="step-num">4</span><div>
-        <h3 data-i18n="steps.s4.title">Arrivee au depot</h3>
-        <p data-i18n="steps.s4.desc">Le colis est receptionne, pese, photographie et enregistre.</p></div></div>
-
-      <div class="step rv"><span class="step-num">5</span><div>
-        <h3 data-i18n="steps.s5.title">Vous etes informe</h3>
-        <p data-i18n="steps.s5.desc">Un email part des que le statut change, dans votre langue.</p></div></div>
-
-      <div class="step rv"><span class="step-num">6</span><div>
-        <h3 data-i18n="steps.s6.title">Recuperation ou livraison</h3>
-        <p data-i18n="steps.s6.desc">Vous choisissez : retrait au depot ou livraison a domicile.</p></div></div>
-    </div>
-
-    <a href="/fonctionnement" class="btn btn-outline btn-block rv" style="margin-top:20px" data-i18n="steps.more">Voir le detail du processus</a>
-  </div>
-</section>
-
-<!-- ============================ TEMOIGNAGES ============================ -->
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="section-head rv">
-      <span class="eyebrow-sm" data-i18n="testi.eyebrow">Temoignages</span>
-      <h2 data-i18n="testi.title">Ce que nos clients en disent</h2>
-    </div>
-
-    <div class="stagger rv">
-      <blockquote class="quote">
-        <p data-i18n="testi.q1">« Trois conteneurs en deux ans, jamais un colis perdu. Je sais toujours ou en est ma marchandise. »</p>
-        <footer><span class="avatar">A</span><span><b data-i18n="testi.n1">Amina D.</b><small data-i18n="testi.r1">Grossiste textile, Douala</small></span></footer>
-      </blockquote>
-
-      <blockquote class="quote">
-        <p data-i18n="testi.q2">« Le dedouanement m'a toujours fait peur. Ils s'occupent de tout, je recois juste le message quand c'est pret. »</p>
-        <footer><span class="avatar">S</span><span><b data-i18n="testi.n2">Serge M.</b><small data-i18n="testi.r2">Importateur electronique</small></span></footer>
-      </blockquote>
-    </div>
-
-    <div class="band rv" style="margin-top:16px">
-      <h2 data-i18n="testi.band_title">Votre marchandise merite le meme soin</h2>
-      <p data-i18n="testi.band_sub">Creez votre compte, et suivez chaque colis depuis votre espace.</p>
-      <a href="/signup" class="btn btn-primary" data-i18n="testi.cta">Creer mon compte</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ FAQ ============================ -->
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="section-head rv">
-      <span class="eyebrow-sm" data-i18n="faq.eyebrow">Questions frequentes</span>
-      <h2 data-i18n="faq.title">Avant de vous lancer</h2>
-    </div>
-
-    <div class="rv" id="faq">
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false">
-          <span data-i18n="faq.q1.q">Dois-je envoyer par bateau ou par avion ?</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-        </button>
-        <div class="faq-a"><p data-i18n="faq.q1.a">Au-dela de 300 kg ou d'un metre cube, le maritime est presque toujours le bon choix. Pour du leger, urgent ou a forte valeur, l'aerien se justifie.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false">
-          <span data-i18n="faq.q2.q">Comment suivre mon colis ?</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-        </button>
-        <div class="faq-a"><p data-i18n="faq.q2.a">Creez un compte, puis retrouvez le statut de chacun de vos colis depuis votre espace client, avec photos et historique complet.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false">
-          <span data-i18n="faq.q3.q">Combien de temps mes colis restent-ils stockes ?</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-        </button>
-        <div class="faq-a"><p data-i18n="faq.q3.a">Le temps qu'il faut, jusqu'a votre recuperation. Vous etes prevenu des l'arrivee au depot, puis des que le colis est disponible.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false">
-          <span data-i18n="faq.q4.q">Que se passe-t-il si un colis est abime ?</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-        </button>
-        <div class="faq-a"><p data-i18n="faq.q4.a">Chaque colis est photographie a son arrivee au depot. En cas de probleme, les photos font foi et nous traitons le dossier avec vous.</p></div>
-      </div>
-    </div>
-
-    <a href="/faq" class="btn btn-outline btn-block rv" style="margin-top:18px" data-i18n="faq.more">Toutes les questions</a>
-  </div>
-</section>
-
-<!-- ============================ CONTACT ============================ -->
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="contact-band rv rv-zoom">
-      <h2 data-i18n="contact.title">Une commande a nous confier ?</h2>
-      <p data-i18n="contact.subtitle">Notre equipe vous repond personnellement, en francais ou en anglais.</p>
-      <div class="contact-methods">
-        <a href="https://wa.me/237698178294" class="btn btn-dark" target="_blank" rel="noopener">WhatsApp — 698 17 82 94</a>
-        <a href="tel:+8613237578986" class="btn btn-line">+86 132 3757 8986</a>
-        <a href="mailto:hurishmomo@gmail.com" class="btn btn-line">hurishmomo@gmail.com</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ PIED DE PAGE ============================ -->
-<footer class="site">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <a class="brand" href="/">
-          <img class="brand-mark" src="https://i.ibb.co/v4M4QCH2/Lord-Kerm.jpg" alt="" width="36" height="36">
-          <span class="brand-word" style="color:#fff">TLC INTERNATIONAL CARGO</span>
-        </a>
-        <p data-i18n="footer.desc">Transit international, importation, stockage et livraison entre Yiwu (Chine) et Douala (Cameroun).</p>
-      </div>
-
-      <div>
-        <h4 data-i18n="footer.nav_title">Navigation</h4>
-        <ul>
-          <li><a href="/services" data-i18n="nav.services">Services</a></li>
-          <li><a href="/fonctionnement" data-i18n="nav.fonctionnement">Fonctionnement</a></li>
-          <li><a href="/temoignages" data-i18n="nav.temoignages">Temoignages</a></li>
-          <li><a href="/faq" data-i18n="nav.faq">Questions frequentes</a></li>
-          <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 data-i18n="footer.contact_title">Contact</h4>
-        <ul>
-          <li><a href="https://wa.me/237698178294" target="_blank" rel="noopener">WhatsApp · 698 17 82 94</a></li>
-          <li><a href="tel:+8613237578986">+86 132 3757 8986</a></li>
-          <li><a href="mailto:hurishmomo@gmail.com">hurishmomo@gmail.com</a></li>
-          <li data-i18n="footer.location">Yiwu, Zhejiang, Chine</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="foot-bottom">
-      <span data-i18n="footer.rights">© 2026 TLC International Cargo. Tous droits reserves.</span>
-      <span data-i18n="brand.tagline">Votre cargo, notre priorite</span>
-    </div>
-  </div>
-</footer>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 
 <script>
 /* ============================================================
+   A RENSEIGNER — meme valeur que CONFIG.GOOGLE_CLIENT_ID
+   dans server.js. Cet identifiant est public, il n'y a rien
+   a cacher ici.
+   ============================================================ */
+const GOOGLE_CLIENT_ID = 'TON_CLIENT_ID.apps.googleusercontent.com';
+
+/* ============================================================
    TRADUCTIONS
-   Le dictionnaire vit dans la page : aucune requete reseau,
-   la bascule FR/EN est instantanee.
    ============================================================ */
 const I18N = {
   fr: {
-    'meta.title':'TLC International Cargo — Votre cargo, notre priorite',
+    'meta.title':'Connexion — TLC International Cargo',
     'brand.tagline':'Votre cargo, notre priorite',
 
-    'nav.home':'Accueil','nav.services':'Services','nav.fonctionnement':'Fonctionnement',
-    'nav.suivi':'Suivre un colis','nav.about':'A propos','nav.contact':'Contact',
-    'nav.temoignages':'Temoignages','nav.faq':'Questions frequentes','nav.profile':'Mon profil',
+    'login.eyebrow':'Espace client',
+    'login.title':'Bon retour parmi nous',
+    'login.subtitle':"Connectez-vous pour suivre vos colis, du depart de Yiwu jusqu'a votre porte.",
+    'login.email':'Adresse email',
+    'login.email_ph':'vous@exemple.com',
+    'login.password':'Mot de passe',
+    'login.forgot':'Mot de passe oublie ?',
+    'login.submit':'Se connecter',
+    'login.or':'ou',
+    'login.google':'Continuer avec Google',
+    'login.no_account':'Pas encore de compte ?',
+    'login.signup':'Creer un compte',
+    'login.back':"Retour a l'accueil",
+    'login.show_pw':'Afficher le mot de passe',
+    'login.hide_pw':'Masquer le mot de passe',
 
-    'auth.login':'Se connecter','auth.signup':'Creer un compte','auth.logout':'Se deconnecter',
-    'auth.admin':'Administrateur','auth.client':'Client',
-    'auth.admin_area':'Espace administration','auth.my_parcels':'Mes colis',
+    'err.email_required':'Entrez votre adresse email.',
+    'err.email_invalid':'Cette adresse email est incomplete.',
+    'err.password_required':'Entrez votre mot de passe.',
+    'err.network':'Connexion impossible. Verifiez votre reseau.',
+    'err.google':'La connexion Google a echoue. Reessayez.',
+    'err.google_config':"La connexion Google n'est pas encore configuree.",
 
-    'hero.eyebrow':'Yiwu, Chine → Douala, Cameroun',
-    'hero.title':'Votre cargo,<br><em>notre priorite.</em>',
-    'hero.lead':"Importation, transit international, stockage temporaire et livraison de vos colis, pris en charge de bout en bout, avec un suivi clair a chaque etape.",
-    'hero.cta_track':'Suivre mon colis','hero.cta_whatsapp':'Discuter sur WhatsApp',
+    'info.banned':'Votre compte a ete suspendu. Contactez-nous a hurishmomo@gmail.com.',
+    'info.unverified':'Votre compte n\'est pas encore verifie. Nous venons de vous renvoyer un code.',
+    'info.session':'Votre session a expire. Reconnectez-vous.',
+    'info.reset_ok':'Mot de passe modifie. Connectez-vous avec le nouveau.',
+    'info.signup_ok':'Compte verifie. Vous pouvez vous connecter.',
 
-    'waybill.number_label':'Numero de colis','waybill.status':'EN TRANSPORT','waybill.preview':'APERCU',
-    'waybill.eta_label':'Arrivee estimee<b>12 aout 2026</b>','waybill.freight_label':'Fret<b>Maritime</b>',
-
-    'stats.parcels':'Colis achemines','stats.clients':'Clients accompagnes',
-    'stats.years':'Presence a Yiwu','stats.rate':'Colis remis a temps',
-
-    'services.eyebrow':'Nos services','services.title':'Chaque etape, entre de bonnes mains',
-    'services.subtitle':"De l'entrepot a Yiwu jusqu'a votre porte a Douala, cinq metiers, un seul interlocuteur.",
-    'services.more':'En savoir plus',
-    'services.maritime.tag':'Fret maritime','services.maritime.title':'Transit international',
-    'services.maritime.desc':"L'option economique pour les gros volumes, groupage LCL depuis Yiwu.",
-    'services.aerien.tag':'Fret aerien','services.aerien.title':'Importation express',
-    'services.aerien.desc':'Pour vos marchandises urgentes ou a forte valeur, livrees en quelques jours.',
-    'services.douane.tag':'Dedouanement','services.douane.title':'Accompagnement douane',
-    'services.douane.desc':'Formalites, documents et frais geres pour vous, sans mauvaise surprise.',
-    'services.stockage.tag':'Entrepot','services.stockage.title':'Stockage temporaire',
-    'services.stockage.desc':"Vos colis en securite dans notre depot, jusqu'a votre recuperation.",
-    'services.livraison.tag':'Dernier kilometre','services.livraison.title':'Livraison',
-    'services.livraison.desc':'Remise en main propre ou point de retrait, a votre convenance.',
-
-    'compare.eyebrow':'Bateau ou avion','compare.title':"La question qu'on nous pose le plus",
-    'compare.subtitle':"La reponse depend de votre budget, du volume et de l'urgence. Un apercu :",
-    'compare.sea.title':'Fret maritime','compare.air.title':'Fret aerien',
-    'compare.delay':'Delai','compare.price':'Prix','compare.ideal':'Ideal pour',
-    'compare.sea.delay':'25 a 40 jours','compare.sea.price':'des 850 USD/CBM','compare.sea.ideal':'gros volumes',
-    'compare.air.delay':'4 a 7 jours','compare.air.price':'5 a 8x le maritime','compare.air.ideal':'colis urgents',
-
-    'steps.eyebrow':'Fonctionnement','steps.title':'Le parcours de votre colis',
-    'steps.subtitle':"Six etapes, du premier contact jusqu'a la remise entre vos mains.",
-    'steps.s1.title':'Vous nous contactez','steps.s1.desc':'Par WhatsApp ou depuis le site, avec le detail de votre commande.',
-    'steps.s2.title':'Prise en charge a Yiwu','steps.s2.desc':'Votre marchandise est receptionnee et verifiee dans notre entrepot.',
-    'steps.s3.title':'Transport organise','steps.s3.desc':'Maritime ou aerien selon votre besoin, dedouanement inclus.',
-    'steps.s4.title':'Arrivee au depot','steps.s4.desc':'Le colis est receptionne, pese, photographie et enregistre.',
-    'steps.s5.title':'Vous etes informe','steps.s5.desc':'Un email part des que le statut change, dans votre langue.',
-    'steps.s6.title':'Recuperation ou livraison','steps.s6.desc':'Vous choisissez : retrait au depot ou livraison a domicile.',
-    'steps.more':'Voir le detail du processus',
-
-    'testi.eyebrow':'Temoignages','testi.title':'Ce que nos clients en disent',
-    'testi.q1':'« Trois conteneurs en deux ans, jamais un colis perdu. Je sais toujours ou en est ma marchandise. »',
-    'testi.n1':'Amina D.','testi.r1':'Grossiste textile, Douala',
-    'testi.q2':"« Le dedouanement m'a toujours fait peur. Ils s'occupent de tout, je recois juste le message quand c'est pret. »",
-    'testi.n2':'Serge M.','testi.r2':'Importateur electronique',
-    'testi.band_title':'Votre marchandise merite le meme soin',
-    'testi.band_sub':'Creez votre compte, et suivez chaque colis depuis votre espace.',
-    'testi.cta':'Creer mon compte',
-
-    'faq.eyebrow':'Questions frequentes','faq.title':'Avant de vous lancer',
-    'faq.q1.q':'Dois-je envoyer par bateau ou par avion ?',
-    'faq.q1.a':"Au-dela de 300 kg ou d'un metre cube, le maritime est presque toujours le bon choix. Pour du leger, urgent ou a forte valeur, l'aerien se justifie.",
-    'faq.q2.q':'Comment suivre mon colis ?',
-    'faq.q2.a':'Creez un compte, puis retrouvez le statut de chacun de vos colis depuis votre espace client, avec photos et historique complet.',
-    'faq.q3.q':'Combien de temps mes colis restent-ils stockes ?',
-    'faq.q3.a':"Le temps qu'il faut, jusqu'a votre recuperation. Vous etes prevenu des l'arrivee au depot, puis des que le colis est disponible.",
-    'faq.q4.q':'Que se passe-t-il si un colis est abime ?',
-    'faq.q4.a':'Chaque colis est photographie a son arrivee au depot. En cas de probleme, les photos font foi et nous traitons le dossier avec vous.',
-    'faq.more':'Toutes les questions',
-
-    'contact.title':'Une commande a nous confier ?',
-    'contact.subtitle':'Notre equipe vous repond personnellement, en francais ou en anglais.',
-
-    'footer.desc':'Transit international, importation, stockage et livraison entre Yiwu (Chine) et Douala (Cameroun).',
-    'footer.nav_title':'Navigation','footer.contact_title':'Contact',
-    'footer.location':'Yiwu, Zhejiang, Chine',
-    'footer.rights':'© 2026 TLC International Cargo. Tous droits reserves.',
-
-    'mq.reliability':'Fiabilite','mq.expertise':'Expertise','mq.commitment':'Engagement',
-    'mq.air':'Fret aerien','mq.sea':'Fret maritime','mq.tracking':'Suivi en temps reel','mq.customs':'Dedouanement',
-
-    'toast.lang':'Langue enregistree','toast.theme':'Apparence enregistree'
+    'ok.welcome':'Connexion reussie'
   },
 
   en: {
-    'meta.title':'TLC International Cargo — Your cargo, our priority',
+    'meta.title':'Sign in — TLC International Cargo',
     'brand.tagline':'Your cargo, our priority',
 
-    'nav.home':'Home','nav.services':'Services','nav.fonctionnement':'How it works',
-    'nav.suivi':'Track a parcel','nav.about':'About','nav.contact':'Contact',
-    'nav.temoignages':'Testimonials','nav.faq':'FAQ','nav.profile':'My profile',
+    'login.eyebrow':'Client area',
+    'login.title':'Welcome back',
+    'login.subtitle':'Sign in to follow your parcels, from Yiwu all the way to your door.',
+    'login.email':'Email address',
+    'login.email_ph':'you@example.com',
+    'login.password':'Password',
+    'login.forgot':'Forgot your password?',
+    'login.submit':'Sign in',
+    'login.or':'or',
+    'login.google':'Continue with Google',
+    'login.no_account':'No account yet?',
+    'login.signup':'Create an account',
+    'login.back':'Back to home',
+    'login.show_pw':'Show password',
+    'login.hide_pw':'Hide password',
 
-    'auth.login':'Sign in','auth.signup':'Create an account','auth.logout':'Sign out',
-    'auth.admin':'Administrator','auth.client':'Client',
-    'auth.admin_area':'Administration','auth.my_parcels':'My parcels',
+    'err.email_required':'Enter your email address.',
+    'err.email_invalid':'This email address is incomplete.',
+    'err.password_required':'Enter your password.',
+    'err.network':'Connection failed. Check your network.',
+    'err.google':'Google sign-in failed. Please try again.',
+    'err.google_config':'Google sign-in is not configured yet.',
 
-    'hero.eyebrow':'Yiwu, China → Douala, Cameroon',
-    'hero.title':'Your cargo,<br><em>our priority.</em>',
-    'hero.lead':'Sourcing, international freight, temporary storage and delivery, handled end to end, with clear tracking at every step.',
-    'hero.cta_track':'Track my parcel','hero.cta_whatsapp':'Chat on WhatsApp',
+    'info.banned':'Your account has been suspended. Contact us at hurishmomo@gmail.com.',
+    'info.unverified':'Your account is not verified yet. We just sent you a new code.',
+    'info.session':'Your session has expired. Please sign in again.',
+    'info.reset_ok':'Password changed. Sign in with the new one.',
+    'info.signup_ok':'Account verified. You can sign in now.',
 
-    'waybill.number_label':'Parcel number','waybill.status':'IN TRANSIT','waybill.preview':'PREVIEW',
-    'waybill.eta_label':'Estimated arrival<b>12 August 2026</b>','waybill.freight_label':'Freight<b>Sea</b>',
-
-    'stats.parcels':'Parcels shipped','stats.clients':'Clients served',
-    'stats.years':'Years in Yiwu','stats.rate':'Delivered on time',
-
-    'services.eyebrow':'Our services','services.title':'Every step, in good hands',
-    'services.subtitle':'From our warehouse in Yiwu to your door in Douala: five services, one point of contact.',
-    'services.more':'Learn more',
-    'services.maritime.tag':'Sea freight','services.maritime.title':'International freight',
-    'services.maritime.desc':'The economical option for large volumes, LCL consolidation from Yiwu.',
-    'services.aerien.tag':'Air freight','services.aerien.title':'Express import',
-    'services.aerien.desc':'For urgent or high-value goods, delivered within days.',
-    'services.douane.tag':'Customs','services.douane.title':'Customs clearance',
-    'services.douane.desc':'Paperwork, documents and duties handled for you, no surprises.',
-    'services.stockage.tag':'Warehouse','services.stockage.title':'Temporary storage',
-    'services.stockage.desc':'Your parcels kept safe in our warehouse until you collect them.',
-    'services.livraison.tag':'Last mile','services.livraison.title':'Delivery',
-    'services.livraison.desc':'Hand delivery or pickup point, whichever suits you.',
-
-    'compare.eyebrow':'Sea or air','compare.title':'The question we get asked most',
-    'compare.subtitle':'It depends on your budget, your volume and how urgent it is. An overview:',
-    'compare.sea.title':'Sea freight','compare.air.title':'Air freight',
-    'compare.delay':'Transit time','compare.price':'Price','compare.ideal':'Best for',
-    'compare.sea.delay':'25 to 40 days','compare.sea.price':'from 850 USD/CBM','compare.sea.ideal':'large volumes',
-    'compare.air.delay':'4 to 7 days','compare.air.price':'5 to 8x sea freight','compare.air.ideal':'urgent parcels',
-
-    'steps.eyebrow':'How it works','steps.title':'Your parcel, step by step',
-    'steps.subtitle':'Six steps, from first contact to the parcel in your hands.',
-    'steps.s1.title':'You get in touch','steps.s1.desc':'On WhatsApp or from the site, with the details of your order.',
-    'steps.s2.title':'Collection in Yiwu','steps.s2.desc':'Your goods are received and checked in our warehouse.',
-    'steps.s3.title':'Shipping arranged','steps.s3.desc':'Sea or air depending on your needs, customs clearance included.',
-    'steps.s4.title':'Arrival at the warehouse','steps.s4.desc':'The parcel is received, weighed, photographed and registered.',
-    'steps.s5.title':'You are notified','steps.s5.desc':'An email goes out whenever the status changes, in your language.',
-    'steps.s6.title':'Collection or delivery','steps.s6.desc':'You choose: pick it up at the warehouse or have it delivered.',
-    'steps.more':'See the full process',
-
-    'testi.eyebrow':'Testimonials','testi.title':'What our clients say',
-    'testi.q1':'"Three containers in two years, never a parcel lost. I always know where my goods are."',
-    'testi.n1':'Amina D.','testi.r1':'Textile wholesaler, Douala',
-    'testi.q2':'"Customs always scared me. They handle everything, I just get the message when it is ready."',
-    'testi.n2':'Serge M.','testi.r2':'Electronics importer',
-    'testi.band_title':'Your goods deserve the same care',
-    'testi.band_sub':'Create your account and follow every parcel from your own space.',
-    'testi.cta':'Create my account',
-
-    'faq.eyebrow':'Frequently asked questions','faq.title':'Before you start',
-    'faq.q1.q':'Should I ship by sea or by air?',
-    'faq.q1.a':'Above 300 kg or one cubic metre, sea freight is almost always the right call. For light, urgent or high-value goods, air freight makes sense.',
-    'faq.q2.q':'How do I track my parcel?',
-    'faq.q2.a':'Create an account, then check the status of each parcel from your client area, with photos and the full history.',
-    'faq.q3.q':'How long are my parcels stored?',
-    'faq.q3.a':'As long as needed, until you collect them. You are notified on arrival at the warehouse, then again once the parcel is available.',
-    'faq.q4.q':'What happens if a parcel is damaged?',
-    'faq.q4.a':'Every parcel is photographed on arrival. If something is wrong, the photos settle it and we handle the claim with you.',
-    'faq.more':'All questions',
-
-    'contact.title':'Got an order for us?',
-    'contact.subtitle':'Our team replies personally, in French or in English.',
-
-    'footer.desc':'International freight, sourcing, storage and delivery between Yiwu (China) and Douala (Cameroon).',
-    'footer.nav_title':'Navigation','footer.contact_title':'Contact',
-    'footer.location':'Yiwu, Zhejiang, China',
-    'footer.rights':'© 2026 TLC International Cargo. All rights reserved.',
-
-    'mq.reliability':'Reliability','mq.expertise':'Expertise','mq.commitment':'Commitment',
-    'mq.air':'Air freight','mq.sea':'Sea freight','mq.tracking':'Real-time tracking','mq.customs':'Customs clearance',
-
-    'toast.lang':'Language saved','toast.theme':'Appearance saved'
+    'ok.welcome':'Signed in'
   }
 };
 
 let LANG = 'fr';
-let AUTH = { authenticated:false, user:null };
-
-const $  = (s,r) => (r||document).querySelector(s);
-const $$ = (s,r) => Array.from((r||document).querySelectorAll(s));
-const t  = (k) => (I18N[LANG] && I18N[LANG][k]) || k;
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => Array.from(document.querySelectorAll(s));
+const t = (k) => (I18N[LANG] && I18N[LANG][k]) || k;
 
 function cookie(name, value, days) {
   if (value === undefined) {
@@ -1165,46 +451,57 @@ function cookie(name, value, days) {
   document.cookie = name + '=' + encodeURIComponent(value) + ';path=/;max-age=' + ((days || 365) * 86400) + ';samesite=lax';
 }
 
-/* ============================================================
-   NOTIFICATION
-   ============================================================ */
+/* ---------- NOTIFICATION ---------- */
 let toastTimer;
 function toast(message, type) {
   const el = $('#toast');
   el.textContent = message;
   el.className = 'toast show ' + (type || 'success');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => el.classList.remove('show'), 3000);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 3200);
 }
 
-/* ============================================================
-   THEME
-   ============================================================ */
+/* ---------- ALERTES ---------- */
+function showError(message) {
+  $('#alertErrorText').textContent = message;
+  $('#alertError').classList.add('show');
+  $('#alertInfo').classList.remove('show');
+}
+function showInfo(message) {
+  $('#alertInfoText').textContent = message;
+  $('#alertInfo').classList.add('show');
+  $('#alertError').classList.remove('show');
+}
+function clearAlerts() {
+  $('#alertError').classList.remove('show');
+  $('#alertInfo').classList.remove('show');
+}
+
+/* ---------- THEME ---------- */
 const SUN  = '<circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/>';
 const MOON = '<path d="M20 14.5A8 8 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>';
 
-function applyTheme(theme, persist) {
+function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
   $('#themeIcon').innerHTML = theme === 'dark' ? SUN : MOON;
   $('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#0B1220' : '#0A1F3D');
   cookie('theme', theme);
   localStorage.setItem('tlc_theme', theme);
-
-  // Sauvegarde en base pour les utilisateurs connectes
-  if (persist && AUTH.authenticated) {
-    fetch('/api/profile', {
-      method:'PUT',
-      headers:{'Content-Type':'application/json'},
-      credentials:'same-origin',
-      body: JSON.stringify({ theme: theme })
-    }).catch(() => {});
-  }
+  renderGoogleButton();
 }
 
-/* ============================================================
-   LANGUE
-   ============================================================ */
-function applyLang(lang, persist) {
+/* ---------- OEIL DU MOT DE PASSE ---------- */
+const EYE = '<path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>';
+const EYE_OFF = '<path d="M10.6 6.7A9.9 9.9 0 0 1 12 6.5c6.4 0 10 6.5 10 6.5a18 18 0 0 1-3 3.7M6.2 8.3A17.7 17.7 0 0 0 2 12s3.6 6.5 10 6.5c1.6 0 3-.3 4.2-.9"/><path d="M3 3l18 18"/>';
+
+function setPasswordVisible(visible) {
+  $('#password').type = visible ? 'text' : 'password';
+  $('#pwIcon').innerHTML = visible ? EYE_OFF : EYE;
+  $('#togglePw').setAttribute('aria-label', visible ? t('login.hide_pw') : t('login.show_pw'));
+}
+
+/* ---------- LANGUE ---------- */
+function applyLang(lang) {
   LANG = (lang === 'en') ? 'en' : 'fr';
   document.documentElement.lang = LANG;
   cookie('lang', LANG);
@@ -1213,282 +510,198 @@ function applyLang(lang, persist) {
     const v = I18N[LANG][el.getAttribute('data-i18n')];
     if (v !== undefined) el.textContent = v;
   });
-  $$('[data-i18n-html]').forEach(el => {
-    const v = I18N[LANG][el.getAttribute('data-i18n-html')];
-    if (v !== undefined) el.innerHTML = v;
+  $$('[data-i18n-ph]').forEach(el => {
+    const v = I18N[LANG][el.getAttribute('data-i18n-ph')];
+    if (v !== undefined) el.placeholder = v;
   });
 
   document.title = t('meta.title');
-  $('#waybill').setAttribute('data-preview', t('waybill.preview'));
   $('#langSelect').value = LANG;
+  setPasswordVisible($('#password').type === 'text');
+  renderGoogleButton();
+}
 
-  buildMarquee();
-  renderAuth();
+/* ---------- VALIDATION ---------- */
+function fieldError(id, message) {
+  const input = $('#' + id);
+  const zone = $('#' + id + 'Error');
+  if (message) {
+    input.classList.add('invalid');
+    zone.textContent = message;
+    zone.classList.add('show');
+  } else {
+    input.classList.remove('invalid');
+    zone.classList.remove('show');
+  }
+}
 
-  if (persist && AUTH.authenticated) {
-    fetch('/api/profile', {
-      method:'PUT',
+function validate() {
+  let ok = true;
+  const email = $('#email').value.trim();
+  const password = $('#password').value;
+
+  if (!email) { fieldError('email', t('err.email_required')); ok = false; }
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { fieldError('email', t('err.email_invalid')); ok = false; }
+  else fieldError('email', null);
+
+  if (!password) { fieldError('password', t('err.password_required')); ok = false; }
+  else fieldError('password', null);
+
+  return ok;
+}
+
+/* ---------- REDIRECTION APRES CONNEXION ---------- */
+function destination(user) {
+  const params = new URLSearchParams(location.search);
+  const retour = params.get('returnTo');
+  // On n'accepte qu'un chemin interne : un returnTo pointant vers un autre
+  // domaine permettrait de rediriger un utilisateur connecte ailleurs.
+  if (retour && /^\/(?!\/)/.test(retour)) return retour;
+  return (user && user.role === 'admin') ? '/admin' : '/suivi';
+}
+
+/* ---------- CONNEXION PAR MOT DE PASSE ---------- */
+async function submitLogin(event) {
+  event.preventDefault();
+  clearAlerts();
+  if (!validate()) return;
+
+  const bouton = $('#submitBtn');
+  bouton.classList.add('loading');
+  bouton.disabled = true;
+
+  try {
+    const res = await fetch('/api/auth/login', {
+      method:'POST',
       headers:{'Content-Type':'application/json'},
       credentials:'same-origin',
-      body: JSON.stringify({ preferred_language: LANG })
-    }).then(() => toast(t('toast.lang'))).catch(() => {});
-  }
-}
+      body: JSON.stringify({ email: $('#email').value.trim(), password: $('#password').value })
+    });
+    const data = await res.json();
 
-/* ============================================================
-   BANDEAU DEFILANT
-   ============================================================ */
-const MARQUEE = [
-  { k:'mq.reliability', i:'<path d="M12 2 4 5v6c0 5 3.4 8.4 8 11 4.6-2.6 8-6 8-11V5l-8-3z"/>' },
-  { k:'mq.expertise',   i:'<circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/>' },
-  { k:'mq.sea',         i:'<path d="M3 18l1.5-6h15L21 18"/><path d="M6 12V6h8l3 6"/>' },
-  { k:'mq.air',         i:'<path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4Z"/>' },
-  { k:'mq.tracking',    i:'<path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="M3 8v8l9 5 9-5V8"/>' },
-  { k:'mq.customs',     i:'<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V2h6v2"/><path d="m9 13 2 2 4-4"/>' },
-  { k:'mq.commitment',  i:'<path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/>' }
-];
+    if (res.ok) {
+      toast(t('ok.welcome'));
+      location.href = destination(data.user);
+      return;
+    }
 
-function buildMarquee() {
-  const group = MARQUEE.map(m =>
-    '<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">' + m.i + '</svg>' + t(m.k) + '</span>'
-  ).join('');
-  $('#marqueeTrack').innerHTML =
-    '<div class="marquee-group">' + group + '</div><div class="marquee-group">' + group + '</div>';
-}
+    // Compte non verifie : le serveur a renvoye un nouveau code
+    if (data.unverified) {
+      location.href = '/verify?email=' + encodeURIComponent(data.email || $('#email').value.trim());
+      return;
+    }
 
-/* ============================================================
-   PANNEAU LATERAL
-   ============================================================ */
-function openSidebar() {
-  $('#sidebar').classList.add('open');
-  $('#backdrop').classList.add('open');
-  $('#burger').setAttribute('aria-expanded', 'true');
-  $('#sidebar').setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
-}
-function closeSidebar() {
-  $('#sidebar').classList.remove('open');
-  $('#backdrop').classList.remove('open');
-  $('#burger').setAttribute('aria-expanded', 'false');
-  $('#sidebar').setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
-}
-
-/* ============================================================
-   ETAT DE CONNEXION
-   Le jeton est un cookie httpOnly : le JavaScript ne peut pas
-   le lire, on demande donc au serveur qui est connecte.
-   ============================================================ */
-async function loadAuth() {
-  try {
-    const res = await fetch('/api/auth/check', { credentials:'same-origin' });
-    AUTH = await res.json();
+    showError(data.banned ? t('info.banned') : (data.error || t('err.network')));
   } catch (e) {
-    AUTH = { authenticated:false, user:null };
+    showError(t('err.network'));
+  } finally {
+    bouton.classList.remove('loading');
+    bouton.disabled = false;
   }
 }
 
-function renderAuth() {
-  const slot = $('#sidebarAuth');
+/* ---------- CONNEXION GOOGLE ---------- */
+async function onGoogleCredential(response) {
+  clearAlerts();
+  try {
+    const res = await fetch('/api/auth/google-login', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      credentials:'same-origin',
+      body: JSON.stringify({ credential: response.credential })
+    });
+    const data = await res.json();
 
-  if (!AUTH.authenticated) {
-    slot.innerHTML =
-      '<a href="/login" class="btn btn-ghost btn-block">' + t('auth.login') + '</a>' +
-      '<a href="/signup" class="btn btn-primary btn-block">' + t('auth.signup') + '</a>';
-    return;
+    if (res.ok) {
+      toast(t('ok.welcome'));
+      location.href = destination(data.user);
+      return;
+    }
+    showError(data.banned ? t('info.banned') : (data.error || t('err.google')));
+  } catch (e) {
+    showError(t('err.google'));
   }
+}
 
-  const u = AUTH.user || {};
-  const admin = u.role === 'admin';
-  const initiale = (u.nom_complet || 'U').charAt(0).toUpperCase();
-  const avatar = u.avatar_url
-    ? '<img class="avatar" src="' + u.avatar_url + '" alt="">'
-    : '<span class="avatar">' + initiale + '</span>';
+let googlePret = false;
 
-  slot.innerHTML =
-    '<div class="sidebar-user">' + avatar +
-      '<span><b>' + (u.nom_complet || '') + '</b>' +
-      '<small>' + (admin ? t('auth.admin') : t('auth.client')) + '</small></span>' +
-    '</div>' +
-    '<a href="' + (admin ? '/admin' : '/suivi') + '" class="btn btn-primary btn-block">' +
-      (admin ? t('auth.admin_area') : t('auth.my_parcels')) + '</a>' +
-    '<a href="/profile" class="btn btn-ghost btn-block">' + t('nav.profile') + '</a>' +
-    '<button type="button" class="btn btn-ghost btn-block" id="logoutBtn">' + t('auth.logout') + '</button>';
-
-  $('#logoutBtn').addEventListener('click', async () => {
-    try { await fetch('/api/auth/logout', { method:'POST', credentials:'same-origin' }); } catch (e) {}
-    location.href = '/';
+function renderGoogleButton() {
+  if (!googlePret) return;
+  const hote = $('#googleHost');
+  hote.innerHTML = '';
+  const sombre = document.documentElement.getAttribute('data-theme') === 'dark';
+  google.accounts.id.renderButton(hote, {
+    type:'standard',
+    theme: sombre ? 'filled_black' : 'outline',
+    size:'large',
+    shape:'pill',
+    text:'continue_with',
+    logo_alignment:'center',
+    locale: LANG,
+    width: Math.min(hote.clientWidth || 360, 400)
   });
 }
 
-/* ============================================================
-   REVELATION AU SCROLL
-   L'element s'anime a chaque fois qu'il entre dans l'ecran.
-   ============================================================ */
-function initReveal() {
-  const cibles = $$('.rv, .stagger');
-  if (!('IntersectionObserver' in window)) {
-    cibles.forEach(el => el.classList.add('in'));
-    return;
+function initGoogle() {
+  if (typeof google === 'undefined' || !google.accounts || !google.accounts.id) return false;
+  if (GOOGLE_CLIENT_ID.indexOf('TON_CLIENT_ID') === 0) {
+    // Identifiant pas encore renseigne : on montre le bouton de secours,
+    // qui explique la situation plutot que d'echouer en silence.
+    $('#googleFallback').style.display = 'inline-flex';
+    $('#googleFallback').addEventListener('click', () => showError(t('err.google_config')));
+    return true;
   }
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('in');
-      else entry.target.classList.remove('in');
-    });
-  }, { threshold:0.12, rootMargin:'0px 0px -8% 0px' });
-
-  cibles.forEach(el => io.observe(el));
-}
-
-/* ============================================================
-   COMPTEURS
-   ============================================================ */
-function initCounters() {
-  const nombres = $$('[data-count]');
-  const anime = (el) => {
-    const cible = parseInt(el.dataset.count, 10);
-    const suffixe = el.dataset.suffix || '';
-    const debut = performance.now();
-    const duree = 1400;
-    const pas = (now) => {
-      const p = Math.min((now - debut) / duree, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(cible * eased).toLocaleString('fr-FR') + suffixe;
-      if (p < 1) requestAnimationFrame(pas);
-    };
-    requestAnimationFrame(pas);
-  };
-
-  if (!('IntersectionObserver' in window)) { nombres.forEach(anime); return; }
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { anime(e.target); io.unobserve(e.target); }
-    });
-  }, { threshold:0.5 });
-  nombres.forEach(el => io.observe(el));
-}
-
-/* ============================================================
-   ETAPES — la ligne verte suit le scroll
-   ============================================================ */
-function initSteps() {
-  const bloc = $('#steps');
-  const fill = $('#stepsFill');
-  const etapes = $$('.step', bloc);
-  if (!bloc) return;
-
-  const maj = () => {
-    const r = bloc.getBoundingClientRect();
-    const h = window.innerHeight;
-    const avance = Math.min(Math.max((h * 0.65 - r.top) / r.height, 0), 1);
-    fill.style.height = (avance * (r.height - 52)) + 'px';
-
-    etapes.forEach(step => {
-      const s = step.getBoundingClientRect();
-      step.classList.toggle('reached', s.top < h * 0.7);
-    });
-  };
-
-  maj();
-  window.addEventListener('scroll', maj, { passive:true });
-  window.addEventListener('resize', maj);
-}
-
-/* ============================================================
-   BORDEREAU — la route se remplit une fois la carte visible
-   ============================================================ */
-function initRail() {
-  const rail = $('#rail');
-  if (!rail) return;
-  const barre = rail.querySelector('i');
-  const bateau = rail.querySelector('.ship');
-
-  const lancer = () => {
-    barre.style.width = '58%';
-    bateau.style.left = '58%';
-  };
-
-  if (!('IntersectionObserver' in window)) { lancer(); return; }
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { setTimeout(lancer, 350); io.unobserve(e.target); } });
-  }, { threshold:0.4 });
-  io.observe(rail);
-}
-
-/* ============================================================
-   FAQ
-   ============================================================ */
-function initFaq() {
-  $$('.faq-q').forEach(bouton => {
-    bouton.addEventListener('click', () => {
-      const item = bouton.parentElement;
-      const zone = item.querySelector('.faq-a');
-      const ouvert = item.classList.contains('open');
-
-      $$('.faq-item.open').forEach(autre => {
-        autre.classList.remove('open');
-        autre.querySelector('.faq-a').style.maxHeight = null;
-        autre.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-      });
-
-      if (!ouvert) {
-        item.classList.add('open');
-        zone.style.maxHeight = zone.scrollHeight + 'px';
-        bouton.setAttribute('aria-expanded', 'true');
-      }
-    });
+  google.accounts.id.initialize({
+    client_id: GOOGLE_CLIENT_ID,
+    callback: onGoogleCredential,
+    ux_mode:'popup',
+    auto_select:false,
+    cancel_on_tap_outside:true
   });
+  googlePret = true;
+  renderGoogleButton();
+  return true;
 }
 
-/* ============================================================
-   DEMARRAGE
-   ============================================================ */
-(async function () {
-  // Menu
-  $('#burger').addEventListener('click', () => {
-    $('#sidebar').classList.contains('open') ? closeSidebar() : openSidebar();
-  });
-  $('#sidebarClose').addEventListener('click', closeSidebar);
-  $('#backdrop').addEventListener('click', closeSidebar);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSidebar(); });
-  $$('.sidebar-nav a').forEach(a => a.addEventListener('click', closeSidebar));
+/* ---------- MESSAGES VENANT DE L'URL ---------- */
+function messagesUrl() {
+  const p = new URLSearchParams(location.search);
+  if (p.get('banned')) showError(t('info.banned'));
+  else if (p.get('expired')) showInfo(t('info.session'));
+  else if (p.get('reset')) showInfo(t('info.reset_ok'));
+  else if (p.get('verified')) showInfo(t('info.signup_ok'));
 
-  // Ombre de l'en-tete au scroll
-  window.addEventListener('scroll', () => {
-    $('#header').classList.toggle('scrolled', window.scrollY > 8);
-  }, { passive:true });
+  const email = p.get('email');
+  if (email) $('#email').value = email;
+}
 
-  // Theme
-  const themeInitial = cookie('theme') || localStorage.getItem('tlc_theme') || 'light';
-  applyTheme(themeInitial, false);
+/* ---------- DEMARRAGE ---------- */
+(function () {
+  applyTheme(cookie('theme') || localStorage.getItem('tlc_theme') || 'light');
   $('#themeToggle').addEventListener('click', () => {
-    const suivant = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    applyTheme(suivant, true);
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
   });
 
-  // Qui est connecte
-  await loadAuth();
-
-  // Langue : preference du compte, sinon cookie, sinon navigateur
-  const langCompte = AUTH.user && AUTH.user.preferred_language;
   const langNav = (navigator.language || 'fr').toLowerCase().indexOf('en') === 0 ? 'en' : 'fr';
-  applyLang(langCompte || cookie('lang') || langNav, false);
+  applyLang(cookie('lang') || langNav);
+  $('#langSelect').addEventListener('change', e => applyLang(e.target.value));
 
-  // Le theme du compte l'emporte sur celui du navigateur
-  if (AUTH.user && AUTH.user.theme && AUTH.user.theme !== themeInitial) {
-    applyTheme(AUTH.user.theme, false);
-  }
+  setPasswordVisible(false);
+  $('#togglePw').addEventListener('click', () => setPasswordVisible($('#password').type === 'password'));
 
-  $('#langSelect').addEventListener('change', e => applyLang(e.target.value, true));
+  $('#loginForm').addEventListener('submit', submitLogin);
+  $('#email').addEventListener('input', () => fieldError('email', null));
+  $('#password').addEventListener('input', () => fieldError('password', null));
 
-  // Animations
-  initReveal();
-  initCounters();
-  initSteps();
-  initRail();
-  initFaq();
+  messagesUrl();
+
+  // Le script Google arrive en differe : on attend qu'il soit pret
+  let essais = 0;
+  const attente = setInterval(() => {
+    if (initGoogle() || ++essais > 40) clearInterval(attente);
+  }, 150);
+
+  window.addEventListener('resize', renderGoogleButton);
 })();
 </script>
 </body>
